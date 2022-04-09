@@ -1,0 +1,46 @@
+
+name: Test
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 4,10,16,22 * * *'
+
+jobs:
+  packages:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@main
+
+    - name: Initialization environment
+      run: |
+        # sudo -E apt-get -y update
+        # sudo -E apt-get -y install git subversion git-core wget
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
+        
+    - name: Clone packages
+      run: |
+        chmod +x $GITHUB_WORKSPACE/Z.Backup/scripts/*.sh
+        git clone https://github.com/NueXini/NueXini_Packages -b main --single-branch packages
+        cd packages
+        rm -rf *
+        /bin/bash $GITHUB_WORKSPACE/Z.Backup/scripts/a.sh
+
+    - name: Upload packages
+      run: |
+        [ -e $README ] && cp -f $GITHUB_WORKSPACE/Z.Backup/other/A/README.md packages
+        cd packages
+        git add .
+        Emoji=("🎉" "✨" "🎁" "🎈" "🎄" "🍓" "🍕" "🍉" "🌴" "🚀" "⛅" "🌈" "❤️")
+        git commit -m "${Emoji[$[$RANDOM % ${#Emoji[@]}]]}update at $(TZ='Asia/Shanghai' date +%Y-%m-%d)${Emoji[$[$RANDOM % ${#Emoji[@]}]]}"
+        git push --quiet "https://${{ secrets.TOKEN }}@github.com/NueXini/NueXini_Packages.git" HEAD:main
+ 
+    - name: Delete workflow runs
+      uses: Mattraks/delete-workflow-runs@v1.2.3
+      with:
+        retain_days: 1
+        keep_minimum_runs: 0
+

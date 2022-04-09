@@ -1,0 +1,21 @@
+https://github.com/x-wrt/x-wrt -b master --single-branch
+https://github.com/x-wrt/x-wrt -b 22.03_b202204032143 --single-branch
+
+https://github.com/coolsnowwolf/lede -b master --single-branch
+https://github.com/coolsnowwolf/openwrt -b lede-17.01 --single-branch
+
+https://github.com/immortalwrt/immortalwrt -b master
+https://github.com/immortalwrt/immortalwrt -b openwrt-21.02 --single-branch
+https://github.com/immortalwrt/immortalwrt -b openwrt-18.06 --single-branch
+https://github.com/immortalwrt/immortalwrt -b openwrt-18.06-dev --single-branch
+https://github.com/immortalwrt/immortalwrt -b openwrt-18.06-k5.4 --single-branch
+
+https://github.com/Lienol/openwrt -b main --single-branch
+https://github.com/Lienol/openwrt -b 19.07 --single-branch
+https://github.com/Lienol/openwrt -b 21.02 --single-branch
+
+https://github.com/openwrt/openwrt -b master --single-branch
+https://github.com/openwrt/openwrt -b openwrt-18.06 --single-branch
+https://github.com/openwrt/openwrt -b openwrt-19.07 --single-branch
+https://github.com/openwrt/openwrt -b openwrt-21.02 --single-branch
+

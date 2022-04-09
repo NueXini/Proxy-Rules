@@ -1,0 +1,90 @@
+
+name: Hello NueXini
+
+on:
+  workflow_dispatch:
+    inputs:
+      config:
+        description: 'Configuration File'
+        required: true
+        default: 'xiaomi_mi-router-3g.config'
+      source:
+        description: 'Git Source'
+        required: true
+        default: '1'
+      ifusepatch:
+        description: 'Use Patch'
+        required: true
+        default: 'true'
+
+jobs:
+  build:
+    name: ${{ github.event.inputs.config }}
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@main
+
+    - name: Initialization
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      run: |
+        sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
+        sudo -E apt-get -y update 2>&1 >/dev/null
+        sudo -E apt-get -y install $(cat ./.github/workflows/BuildEnviroment) 2>&1 >/dev/null
+        sudo -E apt-get -y autoremove --purge 2>&1 >/dev/null
+        sudo -E apt-get -y clean 2>&1 >/dev/null
+
+    - name: Build
+      run: |
+        chmod +x $GITHUB_WORKSPACE/Z.Backup/sh/*.sh
+        chmod +x $GITHUB_WORKSPACE/Z.Backup/scripts/*.sh
+        
+        releasetag=$(sed -n "${{ github.event.inputs.source }}p" $GITHUB_WORKSPACE/Z.Backup/config/releasetag.list)
+        git clone $releasetag nuexini
+        
+        cd nuexini
+        /bin/bash $GITHUB_WORKSPACE/Z.Backup/sh/Hello_NueXini.sh
+        
+        ./scripts/feeds update -a > /dev/null
+        ./scripts/feeds install -a
+        
+        cp -f $GITHUB_WORKSPACE/Z.Backup/config/${{ github.event.inputs.config }} .config
+        
+        /bin/bash $GITHUB_WORKSPACE/Z.Backup/sh/Hi_NueXini.sh
+        
+        if [ ${{ github.event.inputs.ifusepatch }} == 'true' ]; then
+            /bin/bash $GITHUB_WORKSPACE/Z.Backup/scripts/patch.sh
+        fi
+        
+        make defconfig
+        make download -j8
+        rm -rf $(find ./dl/ -size -1024c)
+        
+        make -j8 || make -j1 V=sc > ./make-error.log 2>&1
+        
+        mkdir -p ./artifact/firmware
+        mkdir -p ./artifact/IPK
+        cp -rf $(find ./bin/ -type f -name "*.ipk") ./artifact/IPK/
+          
+        /bin/bash $GITHUB_WORKSPACE/Z.Backup/scripts/firmware.sh || /bin/bash $GITHUB_WORKSPACE/Z.Backup/scripts/firmware.sh all
+
+    - name: Upload error log
+      uses: actions/upload-artifact@master
+      if: failure()
+      with:
+        name: build-failure-log
+        path: nuexini/make-error.log
+    
+    - name: Upload Firmware
+      uses: actions/upload-artifact@master
+      with:
+        name: ${{ github.event.inputs.config }}-Firmware
+        path: nuexini/artifact/firmware
+
+    - name: Upload IPK
+      uses: actions/upload-artifact@master
+      with:
+        name: ${{ github.event.inputs.config }}-Packages
+        path: nuexini/artifact/IPK
