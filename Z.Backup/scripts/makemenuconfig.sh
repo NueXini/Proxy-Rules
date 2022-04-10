@@ -77,8 +77,7 @@ kmod-nls-cp437
 kmod-nls-iso8859-1
 kmod-nls-utf8"
 
-R3="luci-app-aliyundrive-webdav
-luci-app-aria2
+R3="luci-app-aria2
 webui-aria2
 luci-app-ksmbd
 luci-app-p910nd
