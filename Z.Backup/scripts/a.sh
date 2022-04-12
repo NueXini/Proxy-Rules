@@ -159,7 +159,7 @@ rm -rf .svn
 ####################################################################################################
 
 # luci-theme-purple
-svn cp https://github.com/rosywrt/luci-theme-purple/trunk/luci-theme-purple ./luci-theme-purple-1806
+svn co https://github.com/rosywrt/luci-theme-purple/trunk/luci-theme-purple ./luci-theme-purple-1806
 rm -rf .svn
 ####################################################################################################
 
