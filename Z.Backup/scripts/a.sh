@@ -4,6 +4,17 @@
 
 ####################################################################################################
 
+
+# luci-app-cloudflarespeedtest
+svn co https://github.com/mingxiaoyu/luci-app-cloudflarespeedtest/trunk/applications/luci-app-cloudflarespeedtest ./luci-app-cloudflarespeedtest
+rm -rf .svn
+####################################################################################################
+
+# luci-app-amlogic
+svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic ./luci-app-amlogic
+rm -rf .svn
+####################################################################################################
+
 # homebridge
 git clone https://github.com/shanglanxin/luci-app-homebridge --depth=1 ./luci-app-homebridge
 ####################################################################################################
@@ -211,13 +222,12 @@ rm -rf .svn
 ####################################################################################################
 
 # Modeminfo
-svn co https://github.com/koshev-msk/luci-app-modeminfo/trunk ./luci-app-modeminfo
-rm -rf .svn
+git clone https://github.com/koshev-msk/luci-app-modeminfo --depth=1 ./luci-app-modeminfo
+git clone https://github.com/koshev-msk/luci-app-smstools3 --depth=1 ./luci-app-smstools3
 ####################################################################################################
 
 # airwhu 锐捷
-svn co https://github.com/KyleRicardo/luci-app-airwhu/trunk ./luci-app-airwhu
-rm -rf .svn
+git clone https://github.com/KyleRicardo/luci-app-airwhu --depth=1 ./luci-app-airwhu
 ####################################################################################################
 
 # Control-weburl
