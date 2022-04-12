@@ -4,9 +4,13 @@
 
 ####################################################################################################
 
+# openwrt-subconverter
+git clone https://github.com/tindy2013/openwrt-subconverter --depth=1 ./openwrt-subconverter
+####################################################################################################
 
 # luci-app-cloudflarespeedtest
 svn co https://github.com/mingxiaoyu/luci-app-cloudflarespeedtest/trunk/applications/luci-app-cloudflarespeedtest ./luci-app-cloudflarespeedtest
+svn co https://github.com/immortalwrt-collections/openwrt-cdnspeedtest/trunk/cdnspeedtest ./cdnspeedtest
 rm -rf .svn
 ####################################################################################################
 
@@ -58,7 +62,7 @@ rm -rf .svn
 ####################################################################################################
 
 # linkease(易有云)
-svn co https://github.com/linkease/openwrt-themedog/trunk/luci/luci-theme-dog ./luci-theme-dog
+svn co https://github.com/linkease/openwrt-themedog/trunk/luci/luci-theme-dog ./luci-theme-dog-1806
 rm -rf .svn
 svn co https://github.com/linkease/nas-packages-luci/trunk/luci ./
 rm -rf .svn
@@ -150,21 +154,28 @@ ln -s \.\./img/bg1.jpg ./luci-theme-argon-2102/htdocs/luci-static/argon/backgrou
 ####################################################################################################
 
 # luci-theme-neobird
-svn co https://github.com/thinktip/luci-theme-neobird/trunk ./luci-theme-neobird
+svn co https://github.com/thinktip/luci-theme-neobird/trunk ./luci-theme-neobird-1806
 rm -rf .svn
 ####################################################################################################
 
-# Theme-Rosy
-svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06-k5.4/themes/luci-theme-rosy ./luci-theme-rosy-1806
+# luci-theme-purple
+svn cp https://github.com/rosywrt/luci-theme-purple/trunk/luci-theme-purple ./luci-theme-purple-1806
 rm -rf .svn
 ####################################################################################################
 
-# Theme-infinityfreedom
+# luci-theme-rosy
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/themes/luci-theme-rosy ./luci-theme-rosy-1806
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/themes/luci-theme-Butterfly /luci-theme-Butterfly-1806
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/themes/luci-theme-Butterfly-dark /luci-theme-Butterfly-dark-1806
+rm -rf .svn
+####################################################################################################
+
+# theme infinityfreedom
 svn co https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom/trunk/luci-theme-infinityfreedom ./luci-theme-infinityfreedom-1806
 rm -rf .svn
 ####################################################################################################
 
-# Theme-Edge
+# theme edge
 svn co https://github.com/kiddin9/luci-theme-edge/trunk ./luci-theme-edge-1907
 svn co https://github.com/kiddin9/luci-theme-edge/branches/18.06 ./luci-theme-edge-1806
 rm -rf .svn
@@ -251,23 +262,18 @@ rm -rf .svn
 # svn co https://github.com/immortalwrt/immortalwrt/trunk/package/emortal/libericstools ./Gargoyle-Qos/libericstools
 # rm -rf ./Gargoyle-Qos/*/.svn
 
-svn co https://github.com/immortalwrt/packages/trunk/net/udp2raw ./udp2raw
-svn co https://github.com/immortalwrt/packages/trunk/net/gost ./gost
-svn co https://github.com/immortalwrt/packages/trunk/net/gowebdav ./gowebdav
-svn co https://github.com/immortalwrt/packages/trunk/utils/cpulimit ./cpulimit
-svn co https://github.com/immortalwrt/packages/trunk/utils/cpulimit-ng ./cpulimit-ng
-svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-udp2raw ./luci-app-udp2raw
-svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-xunlei ./luci-app-xunlei
-svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-gost ./luci-app-gost
-svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-gowebdav ./luci-app-gowebdav
-svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-cpulimit ./luci-app-cpulimit
-svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-unblockneteasemusic-go ./luci-app-unblockneteasemusic-go
-svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-unblockneteasemusic ./luci-app-unblockneteasemusic
-
-ln -s \.\./zh_Hans ./luci-app-udp2raw/po/zh-cn
-ln -s \.\./zh_Hans ./luci-app-gost/po/zh-cn
-ln -s \.\./zh_Hans ./luci-app-gowebdav/po/zh-cn
-ln -s \.\./zh_Hans ./luci-app-cpulimit/po/zh-cn
+svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/udp2raw ./udp2raw
+svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/gost ./gost
+svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/gowebdav ./gowebdav
+svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/utils/cpulimit ./cpulimit
+svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/utils/cpulimit-ng ./cpulimit-ng
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-udp2raw ./luci-app-udp2raw
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-xunlei ./luci-app-xunlei
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-gost ./luci-app-gost
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-gowebdav ./luci-app-gowebdav
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-cpulimit ./luci-app-cpulimit
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-unblockneteasemusic-go ./luci-app-unblockneteasemusic-go
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-unblockneteasemusic ./luci-app-unblockneteasemusic
 
 rm -rf .svn
 ####################################################################################################
