@@ -131,7 +131,8 @@ kmod-nls-cp437
 kmod-nls-iso8859-1
 kmod-nls-utf8"
 
-app="luci-app-accesscontrol
+app="
+luci-app-accesscontrol
 luci-app-argon-config
 luci-app-arpbind
 luci-app-autotimeset
@@ -180,13 +181,13 @@ sed -i 's/CONFIG_LUCI_LANG_en=y/CONFIG_LUCI_LANG_en=n/g' .config
 sed -i 's/BLOCK_SIZE=256/BLOCK_SIZE=512/g' .config
 
 for i in $apps; do
-	sed -i "/$i/d" .config
-	echo 'CONFIG_PACKAGE_'${i}'=y' >> .config
+	sed -i "/${i}/d" .config
+	echo "CONFIG_PACKAGE_${i}=y" >> .config
 done
 
 for n in $noneed; do
-	sed -i "/$n/d" .config
-	echo 'CONFIG_PACKAGE_'${n}'=n' >> .config
+	sed -i "/${n}/d" .config
+	echo "CONFIG_PACKAGE_${n}=n" >> .config
 done
 
 echo '==[make menuconfig done]=='
