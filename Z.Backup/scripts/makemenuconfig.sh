@@ -82,7 +82,6 @@ R3="luci-app-aria2
 webui-aria2
 luci-app-ksmbd
 luci-app-p910nd
-p910nd-helper
 luci-app-ssr-plus
 luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Client
 luci-app-ssr-plus_INCLUDE_Xray
