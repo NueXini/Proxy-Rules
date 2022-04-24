@@ -41,8 +41,8 @@ jobs:
         
         /bin/bash $GITHUB_WORKSPACE/Z.Backup/sh/Hi_NueXini.sh
         
-        ln -sf $GITHUB_WORKSPACE/Z.Backup/scripts/makemenuconfig.sh ./dd2.sh
-        ln -sf $GITHUB_WORKSPACE/Z.Backup/scripts/cpcfg.sh ./dd3.sh
+        ln -sf $GITHUB_WORKSPACE/Z.Backup/scripts/makemenuconfig.sh ./mk.sh
+        ln -sf $GITHUB_WORKSPACE/Z.Backup/scripts/cpcfg.sh ./cp.sh
         
         echo "grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > NX_DEVICE_NAME" > dd.sh
         echo 'cp -rf ./.config ./nuexini/$(cat NX_DEVICE_NAME).config' >> dd.sh

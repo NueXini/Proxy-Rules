@@ -3,8 +3,11 @@
 
 CONFIG_VERSION_NUMBER_NX=$(cat feeds/x/rom/lede/config.ramips-mt7621 | grep  'CONFIG_VERSION_NUMBER' | cut -d '"' -f 2)
 sed -i "s/CONFIG_VERSION_NUMBER=\".*\"/CONFIG_VERSION_NUMBER=\"$CONFIG_VERSION_NUMBER_NX\"/" .config
+
 CONFIG_VERSION_CODE_NX=$(cat feeds/x/rom/lede/config.ramips-mt7621 | grep  'CONFIG_VERSION_CODE=' | cut -d '"' -f 2)
 sed -i "s/CONFIG_VERSION_CODE=\".*\"/CONFIG_VERSION_CODE=\"$CONFIG_VERSION_CODE_NX\"/" .config
+
+sed -i "s/CONFIG_KERNEL_BUILD_USER=\".*\"/CONFIG_KERNEL_BUILD_USER=\"NueXini\"/" .config
 
 cp -f $GITHUB_WORKSPACE/Z.Backup/other/A/x.banner package/base-files/files/etc/banner
 
