@@ -45,17 +45,17 @@ jobs:
         git clone $releasetag nuexini
         
         cd nuexini
-        /bin/bash $GITHUB_WORKSPACE/Z.Backup/sh/Hello_NueXini.sh
+        bash $GITHUB_WORKSPACE/Z.Backup/sh/Hello_NueXini.sh
         
         ./scripts/feeds update -a > /dev/null
         ./scripts/feeds install -a
         
         cp -f $GITHUB_WORKSPACE/Z.Backup/config/${{ github.event.inputs.config }} .config
         
-        /bin/bash $GITHUB_WORKSPACE/Z.Backup/sh/Hi_NueXini.sh
+        bash $GITHUB_WORKSPACE/Z.Backup/sh/Hi_NueXini.sh
         
         if [ ${{ github.event.inputs.ifusepatch }} == 'true' ]; then
-            /bin/bash $GITHUB_WORKSPACE/Z.Backup/scripts/patch.sh
+            bash $GITHUB_WORKSPACE/Z.Backup/scripts/patch.sh
         fi
         
         make defconfig
@@ -68,7 +68,7 @@ jobs:
         mkdir -p ./artifact/IPK
         cp -rf $(find ./bin/ -type f -name "*.ipk") ./artifact/IPK/
           
-        /bin/bash $GITHUB_WORKSPACE/Z.Backup/scripts/firmware.sh || /bin/bash $GITHUB_WORKSPACE/Z.Backup/scripts/firmware.sh all
+        bash $GITHUB_WORKSPACE/Z.Backup/scripts/firmware.sh || bash $GITHUB_WORKSPACE/Z.Backup/scripts/firmware.sh all
 
     - name: Upload error log
       uses: actions/upload-artifact@master

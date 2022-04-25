@@ -13,6 +13,6 @@ ln -s /usr/bin/upx ./staging_dir/host/bin/upx
 ln -s /usr/bin/upx-ucl ./staging_dir/host/bin/upx-ucl
 
 if [ -d "feeds/x" ]; then
-	/bin/bash $GITHUB_WORKSPACE/Z.Backup/sh/x.sh
+	bash $GITHUB_WORKSPACE/Z.Backup/sh/x.sh
 fi
 

@@ -27,7 +27,7 @@ jobs:
         git clone https://github.com/NueXini/NueXini_Packages -b main --single-branch packages
         cd packages
         rm -rf *
-        /bin/bash $GITHUB_WORKSPACE/Z.Backup/scripts/a.sh
+        bash $GITHUB_WORKSPACE/Z.Backup/scripts/a.sh
 
     - name: Upload packages
       run: |

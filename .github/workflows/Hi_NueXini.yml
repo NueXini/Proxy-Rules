@@ -32,14 +32,14 @@ jobs:
         cd dd
         mkdir -p ./nuexini
         
-        /bin/bash $GITHUB_WORKSPACE/Z.Backup/sh/Hello_NueXini.sh
+        bash $GITHUB_WORKSPACE/Z.Backup/sh/Hello_NueXini.sh
         
         ./scripts/feeds update -a > /dev/null
         ./scripts/feeds install -a > /dev/null
         
         cp -rf $GITHUB_WORKSPACE/Z.Backup/config/${{ github.event.inputs.config }} .config
         
-        /bin/bash $GITHUB_WORKSPACE/Z.Backup/sh/Hi_NueXini.sh
+        bash $GITHUB_WORKSPACE/Z.Backup/sh/Hi_NueXini.sh
         
         ln -sf $GITHUB_WORKSPACE/Z.Backup/scripts/makemenuconfig.sh ./mk.sh
         ln -sf $GITHUB_WORKSPACE/Z.Backup/scripts/cpcfg.sh ./cp.sh
@@ -53,7 +53,7 @@ jobs:
     - name: Preparation
       run: |
         cd dd
-        /bin/bash dd.sh
+        bash dd.sh
 
     - name: Last thing
       uses: actions/upload-artifact@master

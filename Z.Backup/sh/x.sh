@@ -7,7 +7,10 @@ sed -i "s/CONFIG_VERSION_NUMBER=\".*\"/CONFIG_VERSION_NUMBER=\"$CONFIG_VERSION_N
 CONFIG_VERSION_CODE_NX=$(cat feeds/x/rom/lede/config.ramips-mt7621 | grep  'CONFIG_VERSION_CODE=' | cut -d '"' -f 2)
 sed -i "s/CONFIG_VERSION_CODE=\".*\"/CONFIG_VERSION_CODE=\"$CONFIG_VERSION_CODE_NX\"/" .config
 
-sed -i "s/CONFIG_KERNEL_BUILD_USER=\".*\"/CONFIG_KERNEL_BUILD_USER=\"NueXini\"/" .config
+sed -i "s#CONFIG_KERNEL_BUILD_USER=\".*\"#CONFIG_KERNEL_BUILD_USER=\"NueXini\"#" .config
+
+cp -rf feeds/NueXini_Packages/v2raya feeds/packages/net/
+# cp -rf feeds/NueXini_Packages/xray-core feeds/packages/net/
 
 cp -f $GITHUB_WORKSPACE/Z.Backup/other/A/x.banner package/base-files/files/etc/banner
 
@@ -39,5 +42,5 @@ done
 
 cd feeds/NueXini_Packages
 #curl -s https://raw.githubusercontent.com/NueXini/BuildOpenWrt/master/sh/language_fix.sh | /bin/bash
-/bin/bash $GITHUB_WORKSPACE/Z.Backup/sh/language_fix.sh
+bash $GITHUB_WORKSPACE/Z.Backup/sh/language_fix.sh
 
