@@ -335,6 +335,7 @@ svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser ./lu
 svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-control-timewol ./luci-app-control-timewol
 svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-control-webrestriction ./luci-app-control-webrestriction
 svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-timecontrol ./luci-app-timecontrol
+svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-socat ./luci-app-socat
 rm -rf .svn
 ####################################################################################################
 
