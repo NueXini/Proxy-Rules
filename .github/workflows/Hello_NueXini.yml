@@ -16,6 +16,10 @@ on:
         description: 'Use Patch'
         required: true
         default: 'true'
+      kernel:
+        description: 'Linux Kernel Version'
+        required: true
+        default: 'default'
 
 jobs:
   build:
@@ -56,6 +60,10 @@ jobs:
         
         if [ ${{ github.event.inputs.ifusepatch }} == 'true' ]; then
             bash $GITHUB_WORKSPACE/Z.Backup/scripts/patch.sh
+        fi
+        
+        if [ ${{ github.event.inputs.kernel }} != 'default' ]; then
+            bash $GITHUB_WORKSPACE/Z.Backup/scripts/kernel.sh ${{ github.event.inputs.kernel }}
         fi
         
         make defconfig
