@@ -6,7 +6,7 @@ echo "============================Kenel Patch============================"
 
 sed -i "s/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=$1/g" ./target/linux/*/Makefile
 
-NX_MT7621_File = "./target/linux/ramips/mt7621/config-$1"
+NX_MT7621_File="./target/linux/ramips/mt7621/config-$1"
 
 if [ -f ${NX_MT7621_File} ]; then	
 	echo "CONFIG_MT753X_GSW=y" >> ${NX_MT7621_File}
