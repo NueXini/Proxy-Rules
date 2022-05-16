@@ -32,10 +32,8 @@ jobs:
         cd dd
         mkdir -p ./nuexini
         
-        bash $GITHUB_WORKSPACE/Z.Backup/sh/Hello_NueXini.sh
-        
-        ./scripts/feeds update -a > /dev/null
-        ./scripts/feeds install -a > /dev/null
+        ./scripts/feeds update -a
+        ./scripts/feeds install -a
         
         cp -rf $GITHUB_WORKSPACE/Z.Backup/config/${{ github.event.inputs.config }} .config
         
@@ -44,7 +42,6 @@ jobs:
         ln -sf $GITHUB_WORKSPACE/Z.Backup/scripts/makemenuconfig.sh ./mk.sh
         ln -sf $GITHUB_WORKSPACE/Z.Backup/scripts/cpcfg.sh ./cp.sh
         ln -sf $GITHUB_WORKSPACE/Z.Backup/scripts/dd.sh ./dd.sh
-        
         
     - name: Hi NueXini
       uses: klever1988/ssh2actions@main

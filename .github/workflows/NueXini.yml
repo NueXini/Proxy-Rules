@@ -65,21 +65,25 @@ jobs:
           sudo -E apt-get -y install $(cat ./.github/workflows/BuildEnviroment) 2>&1 >/dev/null
           sudo -E apt-get -y autoremove --purge 2>&1 >/dev/null
           sudo -E apt-get -y clean 2>&1 >/dev/null
-
-      - name: Build
+      
+      - name: Git Clone
         run: |
           chmod +x $GITHUB_WORKSPACE/Z.Backup/sh/*.sh
           chmod +x $GITHUB_WORKSPACE/Z.Backup/scripts/*.sh
           
           releasetag=$(sed -n "${{ github.event.inputs.source }}p" $GITHUB_WORKSPACE/Z.Backup/config/releasetag.list)
           git clone $releasetag nuexini
-          
+        
+      - name: Feeds
+        run: |
           cd nuexini
-          bash $GITHUB_WORKSPACE/Z.Backup/sh/Hello_NueXini.sh
-          
-          ./scripts/feeds update -a > /dev/null
+          echo 'src-git NueXini_Packages https://github.com/NueXini/NueXini_Packages.git' >> feeds.conf.default
+          ./scripts/feeds update -a
           ./scripts/feeds install -a
-         
+          
+      - name: Patch
+        run: |
+          cd nuexini
           cp -f $GITHUB_WORKSPACE/Z.Backup/config/${{ matrix.config }} .config
           
           bash $GITHUB_WORKSPACE/Z.Backup/sh/Hi_NueXini.sh
@@ -87,6 +91,10 @@ jobs:
           if [ ${{ github.event.inputs.ifusepatch }} == 'true' ]; then
               bash $GITHUB_WORKSPACE/Z.Backup/scripts/patch.sh
           fi
+          
+      - name: Build
+        run: |
+          cd nuexini
           
           make defconfig
           make download -j8
@@ -98,7 +106,7 @@ jobs:
           mkdir -p ./artifact/IPK
           cp -rf $(find ./bin/ -type f -name "*.ipk") ./artifact/IPK/
           
-          bash $GITHUB_WORKSPACE/Z.Backup/scripts/firmware.sh || /bin/bash $GITHUB_WORKSPACE/Z.Backup/scripts/firmware.sh all
+          bash $GITHUB_WORKSPACE/Z.Backup/scripts/firmware.sh || bash $GITHUB_WORKSPACE/Z.Backup/scripts/firmware.sh all
     
       - name: Upload error log
         uses: actions/upload-artifact@master

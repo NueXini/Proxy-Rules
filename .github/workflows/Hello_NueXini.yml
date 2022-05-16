@@ -40,22 +40,25 @@ jobs:
         sudo -E apt-get -y autoremove --purge 2>&1 >/dev/null
         sudo -E apt-get -y clean 2>&1 >/dev/null
 
-    - name: Build
+    - name: Git Clone
       run: |
         chmod +x $GITHUB_WORKSPACE/Z.Backup/sh/*.sh
         chmod +x $GITHUB_WORKSPACE/Z.Backup/scripts/*.sh
         
         releasetag=$(sed -n "${{ github.event.inputs.source }}p" $GITHUB_WORKSPACE/Z.Backup/config/releasetag.list)
         git clone $releasetag nuexini
-        
+    
+    - name: Feeds
+      run: |
         cd nuexini
-        bash $GITHUB_WORKSPACE/Z.Backup/sh/Hello_NueXini.sh
-        
-        ./scripts/feeds update -a > /dev/null
+        echo 'src-git NueXini_Packages https://github.com/NueXini/NueXini_Packages.git' >> feeds.conf.default
+        ./scripts/feeds update -a
         ./scripts/feeds install -a
-        
+    
+    - name: Patch
+      run: |
+        cd nuexini
         cp -f $GITHUB_WORKSPACE/Z.Backup/config/${{ github.event.inputs.config }} .config
-        
         bash $GITHUB_WORKSPACE/Z.Backup/sh/Hi_NueXini.sh
         
         if [ ${{ github.event.inputs.ifusepatch }} == 'true' ]; then
@@ -65,6 +68,10 @@ jobs:
         if [ ${{ github.event.inputs.kernel }} != 'default' ]; then
             bash $GITHUB_WORKSPACE/Z.Backup/scripts/kernel.sh ${{ github.event.inputs.kernel }}
         fi
+        
+    - name: Build
+      run: |
+        cd nuexini
         
         make defconfig
         make download -j8
