@@ -25,6 +25,8 @@ CONFIG_NET_RALINK_OFFLOAD=y
 CONFIG_NET_RALINK_SOC=y
 CONFIG_NET_VENDOR_RALINK=y" >> ${NX_MT7621_File}
 	
+	wget -O ./target/linux/ramips/files/drivers/net/ethernet/ralink/mtk_eth_soc.c -q --no-check-certificate https://raw.githubusercontent.com/coolsnowwolf/lede/master/target/linux/ramips/files/drivers/net/ethernet/ralink/mtk_eth_soc.c
+	
 	cat ${NX_MT7621_File}
 	
 fi

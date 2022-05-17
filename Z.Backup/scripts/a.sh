@@ -165,8 +165,8 @@ rm -rf .svn
 
 # luci-theme-rosy
 svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/themes/luci-theme-rosy ./luci-theme-rosy-1806
-svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/themes/luci-theme-Butterfly /luci-theme-Butterfly-1806
-svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/themes/luci-theme-Butterfly-dark /luci-theme-Butterfly-dark-1806
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/themes/luci-theme-Butterfly ./luci-theme-Butterfly-1806
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/themes/luci-theme-Butterfly-dark ./luci-theme-Butterfly-dark-1806
 rm -rf .svn
 ####################################################################################################
 
