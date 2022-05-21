@@ -142,7 +142,6 @@ luci-app-filetransfer
 luci-app-openvpn
 openvpn-openssl
 luci-app-ramfree
-luci-app-syncdial
 luci-app-tcpdump
 luci-app-tencentddns
 luci-app-ttyd
