@@ -10,6 +10,7 @@ uci set natcapd.default.peer_sni_ban='1'
 uci commit natcapd
 
 uci set dhcp.@dnsmasq[0].cachesize='0'
+uci set dhcp.lan.leasetime='48h'
 uci commit dhcp
 
 sed -i 's/\"services\"/\"network\"/g' /usr/lib/lua/luci/controller/nft-qos.lua
