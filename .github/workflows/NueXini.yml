@@ -11,7 +11,7 @@ on:
       ifusepatch:
         description: 'Use Patch'
         required: true
-        default: 'true'
+        default: 'false'
         
 jobs:
   Fconfig: 
@@ -88,7 +88,7 @@ jobs:
           
           bash $GITHUB_WORKSPACE/Z.Backup/sh/Hi_NueXini.sh
           
-          if [ ${{ github.event.inputs.ifusepatch }} == 'true' ]; then
+          if [ ${{ github.event.inputs.ifusepatch }} != 'false' ]; then
               bash $GITHUB_WORKSPACE/Z.Backup/scripts/patch.sh
           fi
           

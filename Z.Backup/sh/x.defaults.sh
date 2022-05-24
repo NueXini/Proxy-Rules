@@ -10,7 +10,6 @@ uci set natcapd.default.peer_sni_ban='1'
 uci commit natcapd
 
 uci set dhcp.@dnsmasq[0].cachesize='0'
-uci set dhcp.lan.leasetime='48h'
 uci commit dhcp
 
 sed -i 's/\"services\"/\"network\"/g' /usr/lib/lua/luci/controller/nft-qos.lua
@@ -25,6 +24,7 @@ sed -i 's#admin/services#admin/system#g' /usr/share/luci/menu.d/luci-app-ttyd.js
 sed -i 's/-hidden//g' /usr/share/luci/menu.d/*.json
 
 rm -f /www/luci-static/resources/view/status/include/35_natflow-users.js
+rm -f /www/luci-static/resources/view/status/include/40_dhcp.js
 rm -f /www/luci-static/resources/view/status/include/50_dsl.js
 rm -f /www/luci-static/resources/view/status/include/70_ddns.js
 rm -f /www/luci-static/resources/view/status/include/80_minidlna.js
