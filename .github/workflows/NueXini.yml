@@ -8,10 +8,6 @@ on:
         description: 'Git Source'
         required: true
         default: '1'
-      ifusepatch:
-        description: 'Use Patch'
-        required: true
-        default: 'false'
         
 jobs:
   Fconfig: 
@@ -88,9 +84,6 @@ jobs:
           
           bash $GITHUB_WORKSPACE/Z.Backup/sh/Hi_NueXini.sh
           
-          if [ ${{ github.event.inputs.ifusepatch }} != 'false' ]; then
-              bash $GITHUB_WORKSPACE/Z.Backup/scripts/patch.sh
-          fi
           
       - name: Build
         run: |
