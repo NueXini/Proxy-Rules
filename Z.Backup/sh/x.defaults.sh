@@ -1,16 +1,15 @@
 
-# Disable ipv6
-# uci -q batch <<-EOF >/dev/null
-#         /etc/init.d/odhcpd disable
-#         uci set dhcp.@dnsmasq[0].filter_aaaa='1'
-#         uci commit dhcp
-# EOF
+uci -q batch <<-EOF >/dev/null
+        set dhcp.@dnsmasq[0].cachesize='0'
+		set dhcp.@dnsmasq[0].filter_aaaa='1'
+		commit dhcp
+EOF
 
 uci set natcapd.default.peer_sni_ban='1'
 uci commit natcapd
 
-uci set dhcp.@dnsmasq[0].cachesize='0'
-uci commit dhcp
+/etc/init.d/usb_factory_reset disable
+/etc/init.d/nginx disable
 
 sed -i 's/\"services\"/\"network\"/g' /usr/lib/lua/luci/controller/nft-qos.lua
 sed -i 's#admin/services#admin/nas#g' /usr/share/luci/menu.d/luci-app-aria2.json

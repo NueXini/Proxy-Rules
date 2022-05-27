@@ -17,7 +17,6 @@ luci-app-minidlna
 luci-app-mosdns
 luci-app-hd-idle
 luci-app-nfs
-luci-app-openclash
 luci-app-p910nd
 p910nd-helper
 luci-app-passwall
