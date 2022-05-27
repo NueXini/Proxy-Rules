@@ -1,6 +1,6 @@
 
 uci -q batch <<-EOF >/dev/null
-        set dhcp.@dnsmasq[0].cachesize='0'
+		set dhcp.@dnsmasq[0].cachesize='0'
 		set dhcp.@dnsmasq[0].filter_aaaa='1'
 		commit dhcp
 EOF
