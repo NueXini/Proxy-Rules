@@ -155,7 +155,8 @@ ddns-scripts_aliyun
 dnsmasq_full_dhcpv6
 dnsmasq_full_dnssec
 dnsmasq_full_ipset
-dnsmasq_full_tftp"
+dnsmasq_full_tftp
+ethtool"
 
 noneed="luci-app-sqm
 luci-app-wizard
