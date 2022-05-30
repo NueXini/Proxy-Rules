@@ -14,8 +14,9 @@ sed -i 's,1.openwrt.pool.ntp.org,ntp1.aliyun.com,g' package/base-files/files/bin
 sed -i 's,2.openwrt.pool.ntp.org,ntp.ntsc.ac.cn,g' package/base-files/files/bin/config_generate
 sed -i 's,3.openwrt.pool.ntp.org,cn.ntp.org.cn,g' package/base-files/files/bin/config_generate
 
-# sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 sed -i 's/+luci-theme-bootstrap //g' feeds/luci/collections/luci/Makefile
+sed -i 's/+luci-theme-bootstrap //g' feeds/luci/collections/luci-nginx/Makefile
+sed -i 's/+luci-theme-bootstrap //g' feeds/luci/collections/luci-ssl-nginx/Makefile
 
 sed -i 's/192\.168\.1.*\.1/192\.168\.3\.1/g' feeds/luci/modules/luci-mod-system/htdocs/luci-static/resources/view/system/flash.js
 
