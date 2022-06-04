@@ -40,6 +40,13 @@ sed -i '/option disabled/d' /etc/config/wireless
 sed -i '/set wireless.radio${devidx}.disabled/d' /lib/wifi/mac80211.sh
 wifi up
 
+# change web luci user to root
+sed -i '/^admin/d' /etc/shadow
+sed -i '/^admin/d' /etc/passwd
+uci set rpcd.@login[0].username='root'
+uci set rpcd.@login[0].password='$p$root'
+uci commit rpcd
+
 rm /etc/adv_luci_disabled
 rm -rf /tmp/luci-modulecache/
 rm -f /tmp/luci-indexcache
