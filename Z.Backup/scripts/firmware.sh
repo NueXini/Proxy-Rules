@@ -2,19 +2,28 @@
 # Create By NueXini
 
 
-binbin="$(ls -F ./bin/targets/ | grep "/$")"
-for a in $binbin; do
-	echo "=========${a}========="
-	ls ./bin/targets/${a}
-	du --max-depth=1 -h ${a}
-	echo "---------${a}---------"
+bin1="$(ls -F ./bin/targets/ | grep "/$")"
+for a in $bin1; do
+	bin2="$(ls -F ./bin/targets/${a} | grep "/$")"
+	for b in $bin2; do
+		echo "=========${b}========="
+		
+		bin3="./bin/targets/${a}${b}"
+		
+		# rm -rf $(find ./bin/targets/ -type d -name "packages")
+		rm -rf "${bin3}packages"
+		
+		ls ${bin3}
+		du --max-depth=1 -h ${bin3}
+		
+		echo "---------${b}---------"
+		
+		# cp `find ./bin/targets/ -type f -name '*-breed-factory.*'` ./artifact/firmware/ || exit 1
+		# cp `find ./bin/targets/ -type f -name '*-sysupgrade.*'` ./artifact/firmware/ || exit 1
+		# cp -rf $(find ./bin/targets/ -type f) ./artifact/firmware/
+		
+		cp -f "${bin3}*-sysupgrade.*" './artifact/firmware/' && cp -f "${bin3}*-breed-factory.*" './artifact/firmware/' || cp -rf "${bin3}*" './artifact/firmware/'
+		
+	done
 done
-
-if [ ${1}x == 'all'x ]; then
-	rm -rf $(find ./bin/targets/ -type d -name "packages")
-	cp -rf $(find ./bin/targets/ -type f) ./artifact/firmware/
-else
-	cp `find ./bin/targets/ -type f -name '*-breed-factory.*'` ./artifact/firmware/
-	cp `find ./bin/targets/ -type f -name '*-sysupgrade.*'` ./artifact/firmware/
-fi
 

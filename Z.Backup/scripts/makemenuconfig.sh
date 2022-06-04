@@ -14,7 +14,6 @@ webui-aria2
 luci-app-ksmbd
 luci-app-ledtrig-usbport
 luci-app-minidlna
-luci-app-mosdns
 luci-app-hd-idle
 luci-app-nfs
 luci-app-p910nd

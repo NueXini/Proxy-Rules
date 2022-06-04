@@ -96,10 +96,8 @@ jobs:
           make -j8 || make -j1 V=sc > ./make-error.log 2>&1
           
           mkdir -p ./artifact/firmware
-          mkdir -p ./artifact/IPK
-          cp -rf $(find ./bin/ -type f -name "*.ipk") ./artifact/IPK/
           
-          bash $GITHUB_WORKSPACE/Z.Backup/scripts/firmware.sh || bash $GITHUB_WORKSPACE/Z.Backup/scripts/firmware.sh all
+          bash $GITHUB_WORKSPACE/Z.Backup/scripts/firmware.sh
     
       - name: Upload error log
         uses: actions/upload-artifact@master
@@ -113,9 +111,3 @@ jobs:
         with:
           name: ${{ matrix.config }}-Firmware
           path: nuexini/artifact/firmware
-
-      - name: Upload IPK
-        uses: actions/upload-artifact@master
-        with:
-          name: ${{ matrix.config }}-Packages
-          path: nuexini/artifact/IPK
