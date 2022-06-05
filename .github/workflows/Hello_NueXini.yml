@@ -53,15 +53,14 @@ jobs:
         cp -f $GITHUB_WORKSPACE/Z.Backup/config/${{ github.event.inputs.config }} .config
         bash $GITHUB_WORKSPACE/Z.Backup/sh/Hi_NueXini.sh
         
-        
-    - name: Build
-      run: |
-        cd nuexini
-        
         make defconfig
         make download -j8
         rm -rf $(find ./dl/ -size -1024c)
         
+    - name: Build
+      run: |
+        cd nuexini
+                
         make -j8 || make -j1 V=sc > ./make-error.log 2>&1
         
         mkdir -p ./artifact/firmware

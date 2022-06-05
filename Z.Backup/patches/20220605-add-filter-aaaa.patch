@@ -1,0 +1,11 @@
+--- a/package/network/services/dnsmasq/files/dnsmasq.init
++++ b/package/network/services/dnsmasq/files/dnsmasq.init
+@@ -931,6 +931,8 @@
+ 	append_bool "$cfg" noping "--no-ping"
+ 	append_bool "$cfg" rapidcommit "--dhcp-rapid-commit"
+ 	append_bool "$cfg" scriptarp "--script-arp"
++	
++	append_bool "$cfg" filter_aaaa "--filter-aaaa"
+ 
+ 	append_parm "$cfg" logfacility "--log-facility"
+ 	config_get logfacility "$cfg" "logfacility"

@@ -42,6 +42,8 @@ sed -i 's#\"admin\"#\"root\"#g' feeds/luci/modules/luci-mod-admin-mini/luasrc/mo
 sed -i 's#\"admin\"#\"root\"#g' feeds/luci/modules/luci-mod-rpc/luasrc/controller/rpc.lua
 sed -i "s#'admin'#'root'#g" feeds/luci/modules/luci-mod-system/htdocs/luci-static/resources/view/system/password.js
 
+bash $GITHUB_WORKSPACE/Z.Backup/scripts/patch.sh
+
 sed -i '/exit 0/d' feeds/x/base-config-setting/files/uci.defaults
 cat $GITHUB_WORKSPACE/Z.Backup/sh/x.defaults.sh | while read line
 do
