@@ -7,3 +7,5 @@ https://github.com/immortalwrt/immortalwrt -b master
 https://github.com/immortalwrt/immortalwrt -b openwrt-21.02 --single-branch
 https://github.com/immortalwrt/immortalwrt -b openwrt-18.06-k5.4 --single-branch
 
+https://github.com/HiGarfield/lede-17.01.4-Mod -b master
+
