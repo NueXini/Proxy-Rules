@@ -31,7 +31,6 @@ jobs:
 
     - name: Upload packages
       run: |
-        [ -e $README ] && cp -f $GITHUB_WORKSPACE/Z.Backup/other/A/README.md packages
         cd packages
         git add .
         Emoji=("🎉" "✨" "🎁" "🎈" "🎄" "🍓" "🍕" "🍉" "🌴" "🚀" "⛅" "🌈" "❤️")

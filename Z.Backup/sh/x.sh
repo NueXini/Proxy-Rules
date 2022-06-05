@@ -16,7 +16,7 @@ sed -i "s#192\.168\.15#192\.168\.3#" .config
 cp -rf feeds/NueXini_Packages/v2raya feeds/packages/net/
 # cp -rf feeds/NueXini_Packages/xray-core feeds/packages/net/
 
-cp -f $GITHUB_WORKSPACE/Z.Backup/other/A/x.banner package/base-files/files/etc/banner
+cp -f $GITHUB_WORKSPACE/Z.Backup/patches/x.banner package/base-files/files/etc/banner
 
 sed -i 's,192.168.15,192.168.3,g' feeds/x/natflow/files/natflow.config
 
@@ -42,7 +42,7 @@ sed -i 's#\"admin\"#\"root\"#g' feeds/luci/modules/luci-mod-admin-mini/luasrc/mo
 sed -i 's#\"admin\"#\"root\"#g' feeds/luci/modules/luci-mod-rpc/luasrc/controller/rpc.lua
 sed -i "s#'admin'#'root'#g" feeds/luci/modules/luci-mod-system/htdocs/luci-static/resources/view/system/password.js
 
-bash $GITHUB_WORKSPACE/Z.Backup/scripts/patch.sh
+bash $GITHUB_WORKSPACE/Z.Backup/sh/x.patch.sh
 
 sed -i '/exit 0/d' feeds/x/base-config-setting/files/uci.defaults
 cat $GITHUB_WORKSPACE/Z.Backup/sh/x.defaults.sh | while read line

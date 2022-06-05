@@ -323,7 +323,6 @@ done
 
 rm -rf .svn
 
-# cp -rf $GITHUB_WORKSPACE/Z.Backup/other/package/libcryptopp ./
 sed -i 's/default y/default n/g' ./luci-app-rclone/Makefile
 sed -i 's#wpad-openssl#wpad-basic-wolfssl#g' ./luci-app-easymesh/Makefile
 ####################################################################################################
@@ -349,3 +348,4 @@ done
 
 rm -rf LICENSE .gitattributes .gitignore ./.github ./*/.svn ./*/.git
 
+cp -f $GITHUB_WORKSPACE/Z.Backup/patches/packages.README.md ./README.md

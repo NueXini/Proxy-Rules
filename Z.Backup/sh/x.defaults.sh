@@ -1,10 +1,6 @@
 
-uci del dhcp.@dnsmasq[0].nonegcache
 uci del dhcp.@dnsmasq[0].cachesize
-uci commit dhcp
-
 uci set dhcp.@dnsmasq[0].cachesize='0'
-uci set dhcp.@dnsmasq[0].filter_aaaa='1'
 uci commit dhcp
 
 uci set natcapd.default.peer_sni_ban='1'
