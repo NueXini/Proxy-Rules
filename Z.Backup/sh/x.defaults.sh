@@ -1,7 +1,6 @@
 
 uci del dhcp.@dnsmasq[0].cachesize
 uci set dhcp.@dnsmasq[0].cachesize='0'
-uci set dhcp.@dnsmasq[0].mini_ttl='3600'
 # uci set dhcp.@dnsmasq[0].filter_aaaa='1'
 uci commit dhcp
 
