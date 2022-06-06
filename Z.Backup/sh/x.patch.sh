@@ -2,10 +2,11 @@
 # NueXini
 
 # dnsmasq: add filter-aaaa option
-cp -f $GITHUB_WORKSPACE/Z.Backup/patches/900-dnsmasq-filter-aaaa.patch ./package/network/services/dnsmasq/patches/
-patch -p0 ./package/network/services/dnsmasq/files/dnsmasq.init $GITHUB_WORKSPACE/Z.Backup/patches/20220605-add-filter-aaaa.patch
+cp -f $GITHUB_WORKSPACE/Z.Backup/patches/910-dnsmasq-mini-ttl.patch ./package/network/services/dnsmasq/patches/
+cp -f $GITHUB_WORKSPACE/Z.Backup/patches/911-dnsmasq-filter-aaaa+https+unknown.patch ./package/network/services/dnsmasq/patches/
+patch -p0 ./package/network/services/dnsmasq/files/dnsmasq.init $GITHUB_WORKSPACE/Z.Backup/patches/dnsmasq.init.patch
 
 echo '==============[dnsmasq.init]=============='
-sed -n '933,943p' ./package/network/services/dnsmasq/files/dnsmasq.init
+sed -n '933,939p' ./package/network/services/dnsmasq/files/dnsmasq.init
 echo '--------------[dnsmasq.init]--------------'
 
