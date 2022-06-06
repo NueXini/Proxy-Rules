@@ -1,13 +1,9 @@
---- a/package/network/services/dnsmasq/files/dnsmasq.init	2022-06-06 13:23:08.155881200 +0800
-+++ b/package/network/services/dnsmasq/files/dnsmasq.init	2022-06-06 13:24:54.839425900 +0800
-@@ -931,6 +931,11 @@
- 	append_bool "$cfg" noping "--no-ping"
- 	append_bool "$cfg" rapidcommit "--dhcp-rapid-commit"
+--- a/package/network/services/dnsmasq/files/dnsmasq.init	2022-06-06 19:15:14.082932000 +0800
++++ b/package/network/services/dnsmasq/files/dnsmasq.init	2022-06-06 19:15:53.578399000 +0800
+@@ -933,6 +933,7 @@
  	append_bool "$cfg" scriptarp "--script-arp"
-+	
-+	append_bool "$cfg" filter_aaaa "--filter-aaaa"
-+	append_bool "$cfg" filter_https "--filter-https"
-+	append_bool "$cfg" filter_unknown "--filter-unknown"
+ 
+ 	append_bool "$cfg" filter_aaaa "--filter-aaaa"
 +	append_parm "$cfg" mini_ttl "--min-ttl"
  
  	append_parm "$cfg" logfacility "--log-facility"
