@@ -21,8 +21,13 @@ for a in $bin1; do
 		# cp `find ./bin/targets/ -type f -name '*-breed-factory.*'` ./artifact/firmware/ || exit 1
 		# cp `find ./bin/targets/ -type f -name '*-sysupgrade.*'` ./artifact/firmware/ || exit 1
 		# cp -rf $(find ./bin/targets/ -type f) ./artifact/firmware/
-		
-		cp -f "${bin3}*-sysupgrade.*" './artifact/firmware/' && cp -f "${bin3}*-breed-factory.*" './artifact/firmware/' || cp -rf "${bin3}*" './artifact/firmware/'
+		c=`ls ${bin3} | grep '\-breed-factory\.'`
+		if [ -z $c ]; then
+			cp -rf ${bin3}* './artifact/firmware/'
+		else
+			cp ${bin3}${c} './artifact/firmware/'
+			cp -f ${bin3}`ls ${bin3} | grep -E '\-sysupgrade\.'` './artifact/firmware/'
+		fi
 		
 	done
 done

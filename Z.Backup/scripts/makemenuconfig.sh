@@ -20,7 +20,6 @@ luci-app-p910nd
 p910nd-helper
 luci-app-passwall
 luci-app-passwall_INCLUDE_ChinaDNS_NG
-luci-app-passwall_INCLUDE_PDNSD
 luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Client
 luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Server
 luci-app-passwall_INCLUDE_Xray
