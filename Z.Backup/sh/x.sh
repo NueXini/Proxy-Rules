@@ -8,11 +8,6 @@ sed -i "s/CONFIG_VERSION_NUMBER=\".*\"/CONFIG_VERSION_NUMBER=\"$CONFIG_VERSION_N
 CONFIG_VERSION_CODE_NX=$(cat feeds/x/rom/lede/config.ramips-mt7621 | grep  'CONFIG_VERSION_CODE=' | cut -d '"' -f 2)
 sed -i "s/CONFIG_VERSION_CODE=\".*\"/CONFIG_VERSION_CODE=\"$CONFIG_VERSION_CODE_NX\"/" .config
 
-sed -i "s#CONFIG_KERNEL_BUILD_USER=\".*\"#CONFIG_KERNEL_BUILD_USER=\"NueXini\"#" .config
-sed -i "s#CONFIG_KERNEL_BUILD_DOMAIN=\".*\"#CONFIG_KERNEL_BUILD_DOMAIN=\"hotmail\.com\"#" .config
-
-sed -i "s#192\.168\.15#192\.168\.3#" .config
-
 cp -rf feeds/NueXini_Packages/v2raya feeds/packages/net/
 # cp -rf feeds/NueXini_Packages/xray-core feeds/packages/net/
 

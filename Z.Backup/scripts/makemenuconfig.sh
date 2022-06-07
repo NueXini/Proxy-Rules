@@ -98,6 +98,7 @@ kmod-fs-nfs
 kmod-fs-nfs-common
 kmod-fs-nfs-common-rpcsec
 kmod-fs-nfs-v4
+kmod-fs-ntfs3
 kmod-fs-ntfs3-oot
 kmod-fs-vfat
 kmod-fuse
