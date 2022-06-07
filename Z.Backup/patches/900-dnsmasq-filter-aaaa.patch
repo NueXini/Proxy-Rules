@@ -1,3 +1,47 @@
+diff --git a/src/cache.c b/src/cache.c
+index 8add610..1198c42 100644
+--- a/src/cache.c
++++ b/src/cache.c
+@@ -66,6 +66,7 @@ static const struct {
+   { 52,  "TLSA" },
+   { 53,  "SMIMEA" },
+   { 55,  "HIP" },
++  { 65,  "HTTPS"},
+   { 249, "TKEY" },
+   { 250, "TSIG" },
+   { 251, "IXFR" },
+@@ -1804,6 +1805,19 @@ char *record_source(unsigned int index)
+ 
+   return "<unknown>";
+ }
++// patch: function returns integer 1 if query type is unknown.
++// known types are defined in cache.c:typestr:36.
++int is_query_type_unknown(unsigned short type)
++{
++  unsigned int i;
++  for (i = 0; i < (sizeof(typestr)/sizeof(typestr[0])); i++)
++    if (typestr[i].type == type) 
++      {
++	return 0;
++      }
++  return 1;
++}
++// end of patch 
+ 
+ char *querystr(char *desc, unsigned short type)
+ {
+diff --git a/src/dns-protocol.h b/src/dns-protocol.h
+index 496a4bb..ed0d64a 100644
+--- a/src/dns-protocol.h
++++ b/src/dns-protocol.h
+@@ -71,6 +71,7 @@
+ #define T_NSEC          47
+ #define T_DNSKEY        48
+ #define T_NSEC3         50
++#define T_HTTPS         65
+ #define	T_TKEY		249		
+ #define	T_TSIG		250
+ #define T_AXFR          252
 diff --git a/src/dnsmasq.h b/src/dnsmasq.h
 index 8674823..0cdb219 100644
 --- a/src/dnsmasq.h
