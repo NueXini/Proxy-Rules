@@ -26,7 +26,7 @@ jobs:
         chmod +x $GITHUB_WORKSPACE/Z.Backup/sh/*.sh
         chmod +x $GITHUB_WORKSPACE/Z.Backup/scripts/*.sh
         
-        releasetag=$(sed -n "${{ github.event.inputs.source }}p" $GITHUB_WORKSPACE/Z.Backup/config/releasetag.list)
+        releasetag=$(sed -n "${{ github.event.inputs.source }}p" $GITHUB_WORKSPACE/Z.Backup/list/releasetag.list)
         git clone $releasetag dd
         
         cd dd

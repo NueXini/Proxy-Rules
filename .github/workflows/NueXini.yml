@@ -23,7 +23,7 @@ jobs:
       - name: Find Config
         id: findconfig
         run: |
-          CFGS="$(cat $GITHUB_WORKSPACE/Z.Backup/config/cfg.list)"
+          CFGS="$(cat $GITHUB_WORKSPACE/Z.Backup/list/cfg.list)"
           
           NUEXINI='['
           n=1
@@ -67,7 +67,7 @@ jobs:
           chmod +x $GITHUB_WORKSPACE/Z.Backup/sh/*.sh
           chmod +x $GITHUB_WORKSPACE/Z.Backup/scripts/*.sh
           
-          releasetag=$(sed -n "${{ github.event.inputs.source }}p" $GITHUB_WORKSPACE/Z.Backup/config/releasetag.list)
+          releasetag=$(sed -n "${{ github.event.inputs.source }}p" $GITHUB_WORKSPACE/Z.Backup/list/releasetag.list)
           git clone $releasetag nuexini
         
       - name: Feeds
