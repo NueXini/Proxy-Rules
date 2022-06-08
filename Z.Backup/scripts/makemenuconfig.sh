@@ -13,7 +13,6 @@ luci-app-passwall
 luci-app-passwall_INCLUDE_ChinaDNS_NG
 luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Client
 luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Server
-luci-app-passwall_INCLUDE_Xray
 luci-app-ssr-plus
 luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Client
 luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Server

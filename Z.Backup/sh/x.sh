@@ -39,6 +39,8 @@ sed -i "s#'admin'#'root'#g" feeds/luci/modules/luci-mod-system/htdocs/luci-stati
 
 bash $GITHUB_WORKSPACE/Z.Backup/sh/x.patch.sh
 
+rm -rf ./feeds/NueXini_Packages/ntfs3-oot
+
 sed -i '/exit 0/d' feeds/x/base-config-setting/files/uci.defaults
 cat $GITHUB_WORKSPACE/Z.Backup/sh/x.defaults.sh | while read line
 do
