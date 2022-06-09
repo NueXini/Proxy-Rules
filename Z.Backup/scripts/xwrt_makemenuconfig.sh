@@ -19,8 +19,9 @@ bash feeds/x/rom/lede/fix-config.sh
 
 for i in ${mk_a}; do
 	echo $i | grep -q '^luci' && continue
-	sed -i "/${i}/d" .config
+	sed -i "/CONFIG_PACKAGE_${i}/d" .config
 	echo "CONFIG_PACKAGE_${i}=y" >> .config
 done
 
 echo '==[make menuconfig done]=='
+

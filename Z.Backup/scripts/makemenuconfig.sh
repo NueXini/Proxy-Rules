@@ -83,8 +83,6 @@ kmod-usb-storage-extras
 kmod-usb-storage-uas
 kmod-scsi-core
 kmod-usb2
-luci-proto-3g
-luci-proto-bonding
 luci-proto-mbim
 luci-proto-ncm
 luci-proto-qmi
@@ -131,12 +129,12 @@ sed -i 's/CONFIG_LUCI_LANG_en=y/CONFIG_LUCI_LANG_en=n/g' .config
 sed -i 's/BLOCK_SIZE=256/BLOCK_SIZE=512/g' .config
 
 for i in $apps; do
-	sed -i "/${i}/d" .config
+	sed -i "/CONFIG_PACKAGE_${i}/d" .config
 	echo "CONFIG_PACKAGE_${i}=y" >> .config
 done
 
 for n in $noneed; do
-	sed -i "/${n}/d" .config
+	sed -i "/CONFIG_PACKAGE_${n}/d" .config
 	echo "CONFIG_PACKAGE_${n}=n" >> .config
 done
 
