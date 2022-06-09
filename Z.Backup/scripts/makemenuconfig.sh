@@ -7,6 +7,7 @@ echo '#############################
 #############################'
 
 read -p "Input your device number: " num
+[ -z "${num}" ] && { echo "Please input your device number!"; exit 1; }
 
 R3G="luci-app-aliyundrive-webdav
 luci-app-passwall
@@ -113,6 +114,9 @@ luci-theme-openwrt-2020
 nft-qos"
 
 case "$num" in
+	0)
+	find ./feeds/x/rom/lede/ -maxdepth 1 -type f -name 'config.*' && exit 0
+	;;
 	1)
 	apps=${R3G}${app}${usb}
 	;;
@@ -122,6 +126,8 @@ case "$num" in
 	*)
 	apps=${app}
 esac
+
+bash feeds/x/rom/lede/fix-config.sh
 
 sed -i 's/=m/=n/g' .config
 sed -i 's/CONFIG_SDK=y/CONFIG_SDK=n/g' .config
