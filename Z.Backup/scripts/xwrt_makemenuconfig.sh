@@ -3,16 +3,19 @@
 # NueXini
 
 if [ -z "${1}" ]; then
-	read -r -e -p "configuration: " cfg
-	read -r -e -p "device: " device
+	read -p "configuration: " cfg
 	[ -z "${cfg}" ] && { echo "Please input configuration!"; exit 1; }
+	read -p "device: " device
 	[ -z "${device}" ] && { echo "Please input device!"; exit 1; }
 else
 	cfg="${1}"
 	device="${2}"
 fi
 
-mk_a=`cat feeds/x/rom/lede/${cfg} | grep ${device}=\" | cut -d '"' -f 2`
+mk_a=`cat ${cfg} | grep ${device}=\" | cut -d '"' -f 2`
+[ -z ${mk_a} ] && { echo "Invaild!"; exit 1; }
+
+bash feeds/x/rom/lede/fix-config.sh
 
 for i in ${mk_a}; do
 	echo $i | grep -q '^luci' && continue
@@ -20,5 +23,4 @@ for i in ${mk_a}; do
 	echo "CONFIG_PACKAGE_${i}=y" >> .config
 done
 
-bash feeds/x/rom/lede/fix-config.sh
 echo '==[make menuconfig done]=='

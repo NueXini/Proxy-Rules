@@ -12,7 +12,7 @@ others_salt="d44fb0960aa0-a5e6-4a30-250f-6d2df50a"
 others_salt="$(sed "s,-, ,g" <<< "${others_salt}" | awk '{ for (i=NF; i>1; i--) printf("%s-",$i); print $1; }')"
 
 if [ -z "${1}" ]; then
-	read -r -e -p "SN: " sn
+	read -r -p "SN: " sn
 	[ -z "${sn}" ] && { echo "Please input SN!"; exit 1; }
 else
 	sn="${1}"

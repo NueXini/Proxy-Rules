@@ -42,7 +42,6 @@ luci-app-upnp
 luci-app-vlmcsd
 luci-app-zerotier
 luci-theme-argon-2102
-luci-proto-batman-adv
 ddns-scripts-cloudflare
 ddns-scripts-dnspod
 ddns-scripts_aliyun
