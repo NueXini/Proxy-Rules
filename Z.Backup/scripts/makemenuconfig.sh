@@ -56,9 +56,7 @@ usb="
 luci-app-aria2
 webui-aria2
 luci-app-ksmbd
-luci-app-minidlna
 luci-app-hd-idle
-luci-app-nfs
 luci-app-p910nd
 p910nd-helper
 luci-app-usb-printer

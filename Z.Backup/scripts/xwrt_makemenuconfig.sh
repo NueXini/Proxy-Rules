@@ -5,13 +5,12 @@
 if [ -z "${1}" ]; then
 	read -p "configuration: " cfg
 	[ -z "${cfg}" ] && { echo "Please input configuration!"; exit 1; }
-	read -p "device: " device
-	[ -z "${device}" ] && { echo "Please input device!"; exit 1; }
 else
 	cfg="${1}"
-	device="${2}"
 fi
 
+device=`grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/'`
+[ -z ${device} ] && { echo "Invaild!"; exit 1; }
 mk_a=`cat ${cfg} | grep ${device}=\" | cut -d '"' -f 2`
 [ -z ${mk_a} ] && { echo "Invaild!"; exit 1; }
 
