@@ -5,6 +5,9 @@ uci set dhcp.@dnsmasq[0].mini_ttl='3600'
 # uci set dhcp.@dnsmasq[0].filter_aaaa='1'
 uci commit dhcp
 
+uci set network.usbwan.mtu='1492'
+uci commit network
+
 uci set natcapd.default.peer_sni_ban='1'
 uci commit natcapd
 
