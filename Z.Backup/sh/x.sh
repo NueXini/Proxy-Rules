@@ -8,14 +8,9 @@ sed -i "s/CONFIG_VERSION_NUMBER=\".*\"/CONFIG_VERSION_NUMBER=\"$CONFIG_VERSION_N
 CONFIG_VERSION_CODE_NX=$(cat feeds/x/rom/lede/config.ramips-mt7621 | grep  'CONFIG_VERSION_CODE=' | cut -d '"' -f 2)
 sed -i "s/CONFIG_VERSION_CODE=\".*\"/CONFIG_VERSION_CODE=\"$CONFIG_VERSION_CODE_NX\"/" .config
 
-cp -rf feeds/NueXini_Packages/v2raya feeds/packages/net/
-# cp -rf feeds/NueXini_Packages/xray-core feeds/packages/net/
-
 cp -f $GITHUB_WORKSPACE/Z.Backup/patches/x.banner package/base-files/files/etc/banner
 
-sed -i 's,192.168.15,192.168.3,g' feeds/x/natflow/files/natflow.config
-
-sed -i 's#/bootstrap#/argon#g' feeds/x/base-config-setting/files/uci.defaults
+sed -i 's,192\.168\.15,192\.168\.3,g' feeds/x/natflow/files/natflow.config
 
 sed -i 's?fs.access(\"/etc/config/wizard\") and ??g' feeds/luci/modules/luci-base/luasrc/dispatcher.lua
 sed -i 's,admin/initsetup,admin/status/overview,g' feeds/luci/modules/luci-base/luasrc/dispatcher.lua
@@ -23,11 +18,6 @@ sed -i 's,admin/initsetup,admin/status/overview,g' feeds/luci/modules/luci-base/
 # sed -i 's/-hidden//g' feeds/luci/applications/luci-app-opkg/root/usr/share/luci/menu.d/luci-app-opkg.json
 # sed -i 's/-hidden//g' feeds/luci/modules/luci-mod-system/root/usr/share/luci/menu.d/luci-mod-system.json
 # sed -i 's/-hidden//g' feeds/luci/modules/luci-mod-status/root/usr/share/luci/menu.d/luci-mod-status.json
-
-sed -i "s#luci.main.lang='auto'#luci.main.lang='zh_cn'#g" feeds/x/base-config-setting/files/uci.defaults
-
-sed -i "s#PasswordAuth='off'#PasswordAuth='on'#g" feeds/x/base-config-setting/files/uci.defaults
-sed -i "s#RootPasswordAuth='off'#RootPasswordAuth='on'#g" feeds/x/base-config-setting/files/uci.defaults
 
 # change web luci user to root
 sed -i 's#\"admin\"#\"root\"#g' feeds/luci/modules/luci-base/luasrc/dispatcher.lua
@@ -48,6 +38,5 @@ do
 done
 
 cd feeds/NueXini_Packages
-#curl -s https://raw.githubusercontent.com/NueXini/BuildOpenWrt/master/sh/language_fix.sh | /bin/bash
 bash $GITHUB_WORKSPACE/Z.Backup/sh/language_fix.sh
 

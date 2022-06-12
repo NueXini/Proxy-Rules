@@ -1,9 +1,22 @@
 
+uci set luci.main.mediaurlbase='/luci-static/argon'
+uci set luci.main.lang='zh_cn'
+uci commit luci
+
 uci del dhcp.@dnsmasq[0].cachesize
 uci set dhcp.@dnsmasq[0].cachesize='1024'
 uci set dhcp.@dnsmasq[0].mini_ttl='3600'
 # uci set dhcp.@dnsmasq[0].filter_aaaa='1'
 uci commit dhcp
+
+uci set dropbear.@dropbear[0].PasswordAuth='on'
+uci set dropbear.@dropbear[0].RootPasswordAuth='on'
+uci set dropbear.@dropbear[0].Port='22'
+uci del dropbear.@dropbear[0].Interface
+uci commit dropbear
+
+uci set network.usbwan.mtu='1492'
+uci commit network
 
 uci set natcapd.default.peer_sni_ban='1'
 uci commit natcapd
