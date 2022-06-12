@@ -28,8 +28,6 @@ app="
 luci-app-accesscontrol
 luci-app-argon-config
 luci-app-arpbind
-luci-app-autotimeset
-luci-app-commands
 luci-app-easymesh
 luci-app-filetransfer
 luci-app-openvpn
