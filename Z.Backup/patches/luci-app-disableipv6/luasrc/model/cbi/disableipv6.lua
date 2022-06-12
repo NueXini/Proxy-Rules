@@ -10,7 +10,7 @@ s=m:section(TypedSection, "onoff","")
 s.addremove=false
 s.anonymous=true
 
-e=s:option(Flag,"enable",translate("Enable"))
+e=s:option(Flag,"enable",translate("Disable IPV6"))
 e.rmempty = false
 e.default=0
 

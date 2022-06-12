@@ -349,5 +349,5 @@ done
 rm -rf LICENSE .gitattributes .gitignore ./.github ./*/.svn ./*/.git
 
 
-cp -f $GITHUB_WORKSPACE/Z.Backup/patches/luci-app-disableipv6 ./
+cp -rf $GITHUB_WORKSPACE/Z.Backup/patches/luci-app-disableipv6 ./
 cp -f $GITHUB_WORKSPACE/Z.Backup/patches/packages.README.md ./README.md
