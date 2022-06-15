@@ -1,6 +1,7 @@
 #!/bin/bash
 # Create By NueXini
 echo '#############################
+0.List configuration file
 1.Xioami Router 3G
 2.Xioami Router 3
 3.Other
@@ -12,8 +13,6 @@ read -p "Input your device number: " num
 R3G="luci-app-aliyundrive-webdav
 luci-app-passwall
 luci-app-passwall_INCLUDE_ChinaDNS_NG
-luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Client
-luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Server
 luci-app-ssr-plus
 luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Client
 luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Server
@@ -28,6 +27,7 @@ app="
 luci-app-accesscontrol
 luci-app-argon-config
 luci-app-arpbind
+luci-app-disableipv6
 luci-app-easymesh
 luci-app-filetransfer
 luci-app-openvpn
