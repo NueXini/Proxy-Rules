@@ -24,9 +24,7 @@ luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Client
 luci-app-ssr-plus_INCLUDE_SagerNet_Core"
 
 app="
-luci-app-accesscontrol
 luci-app-argon-config
-luci-app-arpbind
 luci-app-disableipv6
 luci-app-easymesh
 luci-app-filetransfer
@@ -34,9 +32,7 @@ luci-app-openvpn
 openvpn-openssl
 luci-app-ramfree
 luci-app-socat
-luci-app-tcpdump
 luci-app-tencentddns
-luci-app-ttyd
 luci-app-upnp
 luci-app-vlmcsd
 luci-app-zerotier
@@ -107,7 +103,8 @@ noneed="luci-app-sqm
 luci-app-wizard
 luci-theme-bootstrap
 luci-theme-openwrt-2020
-nft-qos"
+nft-qos
+luci-app-autoreboot"
 
 case "$num" in
 	0)
