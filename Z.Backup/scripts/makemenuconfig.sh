@@ -104,7 +104,8 @@ luci-app-wizard
 luci-theme-bootstrap
 luci-theme-openwrt-2020
 nft-qos
-luci-app-autoreboot"
+luci-app-autoreboot
+kmod-wireguard"
 
 case "$num" in
 	0)

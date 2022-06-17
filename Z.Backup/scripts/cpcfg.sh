@@ -6,7 +6,7 @@ echo '#############################
 1.Xioami Router 3
 2.Xioami Router 3G
 3.p2w_r619ac-128m
-~or cpu
+~or 7621/7620/ipq40xx and so on
 #############################'
 
 read -p "Input your device number: " num
@@ -23,6 +23,6 @@ case "$num" in
 	cp -f $GITHUB_WORKSPACE/Z.Backup/config/p2w_r619ac-128m.config .config
 	;;
 	*)
-	cp `find ./feeds/x/rom/lede/ -maxdepth 1 -type f -name 'config.*' | grep ${num} | grep -Ev 'ext4fs|nosymbol|'`
+	cp `find ./feeds/x/rom/lede/ -maxdepth 1 -type f -name 'config.*' | grep ${num} | grep -Ev 'ext4fs|nosymbol'`
 esac
 
