@@ -23,6 +23,6 @@ case "$num" in
 	cp -f $GITHUB_WORKSPACE/Z.Backup/config/p2w_r619ac-128m.config .config
 	;;
 	*)
-	cp `find ./feeds/x/rom/lede/ -maxdepth 1 -type f -name 'config.*' | grep ${num} | grep -Ev 'ext4fs|nosymbol'`
+	cp `find ./feeds/x/rom/lede/ -maxdepth 1 -type f -name 'config.*' | grep ${num} | grep -Ev 'ext4fs|nosymbol'` .config
 esac
 

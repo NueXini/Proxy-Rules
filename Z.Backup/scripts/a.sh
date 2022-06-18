@@ -4,6 +4,10 @@
 
 ####################################################################################################
 
+# luci-app-disableipv6
+git clone https://github.com/NxQAQVQ/luci-app-disableipv6 --depth=1 ./luci-app-disableipv6
+####################################################################################################
+
 # openwrt-subconverter
 git clone https://github.com/tindy2013/openwrt-subconverter --depth=1 ./openwrt-subconverter
 ####################################################################################################
@@ -348,6 +352,4 @@ done
 
 rm -rf LICENSE .gitattributes .gitignore ./.github ./*/.svn ./*/.git
 
-
-cp -rf $GITHUB_WORKSPACE/Z.Backup/patches/luci-app-disableipv6 ./
 cp -f $GITHUB_WORKSPACE/Z.Backup/patches/packages.README.md ./README.md
