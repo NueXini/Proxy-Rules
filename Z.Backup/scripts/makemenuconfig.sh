@@ -14,13 +14,11 @@ R3G="luci-app-aliyundrive-webdav
 luci-app-passwall
 luci-app-passwall_INCLUDE_ChinaDNS_NG
 luci-app-ssr-plus
-luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Client
 luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Server
 luci-app-ssr-plus_INCLUDE_SagerNet_Core
 kmod-usb3"
 
 R3="luci-app-ssr-plus
-luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Client
 luci-app-ssr-plus_INCLUDE_SagerNet_Core"
 
 app="
