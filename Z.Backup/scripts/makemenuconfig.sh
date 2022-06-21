@@ -48,6 +48,7 @@ usb="
 luci-app-aria2
 webui-aria2
 luci-app-ksmbd
+ksmbd-utils
 luci-app-hd-idle
 luci-app-p910nd
 p910nd-helper
@@ -103,7 +104,8 @@ luci-theme-bootstrap
 luci-theme-openwrt-2020
 nft-qos
 luci-app-autoreboot
-kmod-wireguard"
+kmod-wireguard
+kmod-usb2-pci"
 
 case "$num" in
 	0)
