@@ -60,7 +60,7 @@ uci set rpcd.@login[0].username='root'
 uci set rpcd.@login[0].password='$p$root'
 uci commit rpcd
 
-chmod 0755 /etc/init.d/*
+chmod 0755 /etc/init.d/* >/dev/null 2>&1
 
 rm -rf /tmp/luci-*cache
 
