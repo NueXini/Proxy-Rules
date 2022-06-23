@@ -4,6 +4,11 @@
 
 ####################################################################################################
 
+# alist
+svn co https://github.com/sbwml/openwrt-alist/trunk/luci-app-alist ./luci-app-alist
+svn co https://github.com/sbwml/openwrt-alist/trunk/alist ./alist
+####################################################################################################
+
 # luci-app-disableipv6
 git clone https://github.com/NxQAQVQ/luci-app-disableipv6 --depth=1 ./luci-app-disableipv6
 ####################################################################################################
