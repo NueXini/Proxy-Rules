@@ -6,7 +6,7 @@ if [ -z "${1}" ]; then
 	read -p "configuration: " cfg
 	[ -z "${cfg}" ] && { echo "Please input configuration!"; exit 1; }
 else
-	cfg="${1}"
+	cfg=`find ./feeds/x/rom/lede/ -maxdepth 1 -type f -name 'config.*' | grep ${1} | grep -Ev 'ext4fs|nosymbol'`
 fi
 
 device=`grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/'`

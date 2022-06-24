@@ -10,8 +10,7 @@ echo '#############################
 read -p "Input your device number: " num
 [ -z "${num}" ] && { echo "Please input your device number!"; exit 1; }
 
-R3G="luci-app-aliyundrive-webdav
-luci-app-passwall
+R3G="luci-app-passwall
 luci-app-passwall_INCLUDE_ChinaDNS_NG
 luci-app-ssr-plus
 luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Server
