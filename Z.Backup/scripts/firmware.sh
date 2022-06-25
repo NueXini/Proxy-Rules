@@ -12,6 +12,7 @@ for a in $bin1; do
 		
 		# rm -rf $(find ./bin/targets/ -type d -name "packages")
 		rm -rf "${bin3}packages"
+		rm -rf "${bin3}.*initramfs.*"
 		
 		ls ${bin3}
 		du --max-depth=1 -h ${bin3}
