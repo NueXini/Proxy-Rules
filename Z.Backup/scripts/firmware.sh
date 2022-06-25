@@ -9,9 +9,12 @@ for a in $bin1; do
 		echo "=========${b}========="
 		
 		bin3="./bin/targets/${a}${b}"
-		
+
 		find ${bin3} -maxdepth 1 -type d -exec rm -rf {} \;
 		find ${bin3} -maxdepth 1 -type f -name '*initramfs*' -exec rm -rf {} \;
+
+		rm -rf "${bin3}packages"
+		rm -rf "${bin3}.*initramfs.*"
 		
 		ls ${bin3}
 		du --max-depth=1 -h ${bin3}
