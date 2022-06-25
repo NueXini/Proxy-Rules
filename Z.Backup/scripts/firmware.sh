@@ -10,17 +10,14 @@ for a in $bin1; do
 		
 		bin3="./bin/targets/${a}${b}"
 		
-		# rm -rf $(find ./bin/targets/ -type d -name "packages")
-		rm -rf "${bin3}packages"
+		find ${bin3} -maxdepth 1 -type d -exec rm -rf {} \;
+		find ${bin3} -maxdepth 1 -type f -name '*initramfs*' -exec rm -rf {} \;
 		
 		ls ${bin3}
 		du --max-depth=1 -h ${bin3}
 		
 		echo "---------${b}---------"
 		
-		# cp `find ./bin/targets/ -type f -name '*-breed-factory.*'` ./artifact/firmware/ || exit 1
-		# cp `find ./bin/targets/ -type f -name '*-sysupgrade.*'` ./artifact/firmware/ || exit 1
-		# cp -rf $(find ./bin/targets/ -type f) ./artifact/firmware/
 		c=`ls ${bin3} | grep '\-breed-factory\.'`
 		if [ -z $c ]; then
 			cp -rf ${bin3}* './artifact/firmware/'
