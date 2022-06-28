@@ -60,7 +60,9 @@ rm -rf .svn
 
 # mosdns
 svn co https://github.com/QiuSimons/openwrt-mos/trunk/luci-app-mosdns ./luci-app-mosdns
+sed -i 's/mosdns_neo/mosdns/g' ./luci-app-mosdns/Makefile
 svn co https://github.com/QiuSimons/openwrt-mos/trunk/mosdns ./mosdns
+sed -i 's/mosdns_neo/mosdns/g' ./mosdns/Makefile
 rm -rf .svn
 ####################################################################################################
 
