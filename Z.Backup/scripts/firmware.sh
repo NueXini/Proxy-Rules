@@ -10,7 +10,7 @@ for a in $bin1; do
 		
 		bin3="./bin/targets/${a}${b}"
 
-		find ${bin3} -maxdepth 1 -type d -exec rm -rf {} \;
+		rm -rf "${bin3}packages"
 		find ${bin3} -maxdepth 1 -type f -name '*initramfs*' -exec rm -rf {} \;
 		
 		ls ${bin3}
