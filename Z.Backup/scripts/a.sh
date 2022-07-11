@@ -244,6 +244,7 @@ rm -rf .svn
 # Modeminfo
 git clone https://github.com/koshev-msk/luci-app-modeminfo --depth=1 ./luci-app-modeminfo
 git clone https://github.com/koshev-msk/luci-app-smstools3 --depth=1 ./luci-app-smstools3
+git clone https://github.com/koshev-msk/luci-app-atinout -b rafal ./luci-app-atinout
 ####################################################################################################
 
 # airwhu 锐捷
