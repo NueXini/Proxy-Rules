@@ -1,4 +1,5 @@
 https://github.com/x-wrt/x-wrt -b master --single-branch
+https://github.com/NxQAQVQ/x-wrt -b master
 https://github.com/x-wrt/x-wrt -b 22.03_b202204032143 --single-branch
 
 https://github.com/coolsnowwolf/lede -b master --single-branch

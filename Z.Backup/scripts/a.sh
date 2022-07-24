@@ -4,6 +4,7 @@
 
 ####################################################################################################
 
+
 # alist
 svn co https://github.com/sbwml/openwrt-alist/trunk/luci-app-alist ./luci-app-alist
 svn co https://github.com/sbwml/openwrt-alist/trunk/alist ./alist
@@ -61,6 +62,9 @@ rm -rf .svn
 # mosdns
 svn co https://github.com/QiuSimons/openwrt-mos/trunk/luci-app-mosdns ./luci-app-mosdns
 svn co https://github.com/QiuSimons/openwrt-mos/trunk/mosdns ./mosdns
+svn co https://github.com/sbwml/luci-app-mosdns/trunk/luci-app-mosdns ./luci-app-mosdns2
+sed -i 's/luci-app-mosdns/&2/g' ./luci-app-mosdns2/Makefile
+sed -i 's/mosdns +/mosdns-neo +/g' ./luci-app-mosdns2/Makefile
 rm -rf .svn
 ####################################################################################################
 
@@ -86,7 +90,7 @@ rm -rf .svn
 ####################################################################################################
 
 # luci-app-store
-svn co https://github.com/linkease/istore/trunk/luci/luci-app-store ./luci-app-store
+svn co https://github.com/linkease/istore/trunk/luci ./luci-app-store
 svn co https://github.com/linkease/istore-ui/trunk/app-store-ui ./app-store-ui
 rm -rf .svn
 ####################################################################################################
