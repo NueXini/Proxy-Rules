@@ -77,22 +77,50 @@ jobs:
           ./scripts/feeds update -a
           ./scripts/feeds install -a
           
-      - name: Patch
+      - name: Configure .config
         run: |
           cd nuexini
           cp -f $GITHUB_WORKSPACE/Z.Backup/config/${{ matrix.config }} .config
           
           bash $GITHUB_WORKSPACE/Z.Backup/sh/Hi_NueXini.sh
           
+      - name: Parse toolchain file
+        run: |
+          cd nuexini
+          grep '^CONFIG_TARGET_BOARD' .config | cut -d '"' -f 2 >NX_TARGET_BOARD
+          grep '^CONFIG_TARGET_SUBTARGET' .config | cut -d '"' -f 2 >NX_TARGET_SUBTARGET
+          curl -s "https://downloads.cdn.openwrt.org/snapshots/targets/$(cat NX_TARGET_BOARD)/$(cat NX_TARGET_SUBTARGET)/sha256sums" \
+            | sed -n -e 's/.*\(openwrt-toolchain.*\).tar.xz/\1/p' >NX_TOOLCHAIN_FILE
+          cat NX_SDK_FILE
+            
+      - name: Download toolchain
+        run: |
+          cd nuexini
+          wget -q -O - https://downloads.cdn.openwrt.org/snapshots/targets/$(cat NX_TARGET_BOARD)/$(cat NX_TARGET_SUBTARGET)/$(cat NX_TOOLCHAIN_FILE).tar.xz \
+            | tar --xz -xf -
+        
+      - name: Configure external toolchain
+        run: |
+          cd nuexini
+          bash ./scripts/ext-toolchain.sh \
+            --toolchain $(cat NX_TOOLCHAIN_FILE)/toolchain-* \
+            --overwrite-config \
+            --config $(cat NX_TARGET_BOARD)/$(cat NX_TARGET_SUBTARGET)
+          
           make defconfig
           make download -j8
           rm -rf $(find ./dl/ -size -1024c)
           
+      - name: Build toolchain
+        run: |
+          cd nuexini
+          make toolchain/install -j$(nproc)
+        
       - name: Build
         run: |
           cd nuexini
-                    
-          make -j8 || make -j1 V=sc > ./make-error.log 2>&1
+          
+          make -j$(nproc) || make -j1 V=sc > ./make-error.log 2>&1
           
           mkdir -p ./artifact/firmware
           
@@ -108,5 +136,5 @@ jobs:
       - name: Upload Firmware
         uses: actions/upload-artifact@master
         with:
-          name: ${{ matrix.config }}-Firmware
+          name: ${{ matrix.config }}
           path: nuexini/artifact/firmware
