@@ -49,6 +49,11 @@ sed -i 's#downloads.openwrt.org#mirrors.cloud.tencent.com/openwrt#g' /etc/opkg/d
 sed -i '/NueXini_Packages/d' /etc/opkg/distfeeds.conf
 sed -i "s/# //g" /etc/opkg/distfeeds.conf
 
+sed 's,mirrors.cloud.tencent.com/openwrt,mirrors.vsean.net/openwrt,g' /etc/opkg/distfeeds.conf >/etc/opkg/customfeeds.conf
+sed -i '/check_signature/d' /etc/opkg.conf && echo 'option check_signature 0' >>/etc/opkg.conf
+sed -i '/no_check_certificate/d' /etc/opkg.conf && echo 'option no_check_certificate 1' >>/etc/opkg.conf
+sed -i '/nodeps/d' /etc/opkg.conf && echo 'option nodeps 1' >>/etc/opkg.conf
+
 sed -i '/option disabled/d' /etc/config/wireless
 sed -i '/set wireless.radio${devidx}.disabled/d' /lib/wifi/mac80211.sh
 wifi up
