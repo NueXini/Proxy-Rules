@@ -23,9 +23,12 @@ for a in $bin1; do
 			cp -rf ${bin3}* './artifact/firmware/'
 		else
 			cp ${bin3}${c} './artifact/firmware/'
+			cp -f ${bin3}`ls ${bin3} | grep -E '\-kernel1\.'` './artifact/firmware/'
+			cp -f ${bin3}`ls ${bin3} | grep -E '\-rootfs0\.'` './artifact/firmware/'
 			cp -f ${bin3}`ls ${bin3} | grep -E '\-sysupgrade\.'` './artifact/firmware/'
 		fi
 		
 	done
 done
 
+exit 0
