@@ -40,7 +40,7 @@ jobs:
         
         bash $GITHUB_WORKSPACE/Z.Backup/sh/Hi_NueXini.sh
         
-        ln -sf $GITHUB_WORKSPACE/Z.Backup/scripts/xwrt_makemenuconfig.sh ./mk2.sh
+        ln -sf $GITHUB_WORKSPACE/Z.Backup/scripts/xwrt_makemenuconfig.sh ./mk.sh
         ln -sf $GITHUB_WORKSPACE/Z.Backup/scripts/cpcfg.sh ./cp.sh
         ln -sf $GITHUB_WORKSPACE/Z.Backup/scripts/dd.sh ./dd.sh
         
