@@ -28,8 +28,8 @@ for a in ${noneed}; do
 done
 
 need="luci-app-argon-config luci-app-disableipv6 luci-app-easymesh luci-app-filetransfer \
-	luci-app-openvpn luci-app-ramfree luci-app-socat luci-app-tencentddns \
-	luci-app-upnp luci-app-vlmcsd luci-app-zerotier \
+	luci-app-openvpn luci-app-ramfree luci-app-socat luci-app-sqm \
+	luci-app-tencentddns luci-app-upnp luci-app-vlmcsd luci-app-zerotier \
 	ddns-scripts-cloudflare ddns-scripts-dnspod ddns-scripts_aliyun"
 for b in ${need}; do
 	sed -i "/CONFIG_PACKAGE_${b}/d" .config
