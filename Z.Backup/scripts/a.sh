@@ -341,7 +341,7 @@ rm -rf .svn
 
 sed -i 's/default y/default n/g' ./luci-app-rclone/Makefile
 sed -i 's#wpad-openssl#wpad-basic-wolfssl#g' ./luci-app-easymesh/Makefile
-sed -i 's#+strongswan-mod-openssl ##g' ./luci-app-ipsec-server/Makefile
+sed -i 's#+strongswan ##g;s#+strongswan-mod-openssl ##g;' ./luci-app-ipsec-server/Makefile
 
 ####################################################################################################
 
