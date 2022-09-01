@@ -21,7 +21,8 @@ for i in ${mk_a}; do
 done
 
 noneed="luci-theme-bootstrap luci-theme-openwrt-2020 \
-	luci-app-wizard luci-app-autoreboot"
+	luci-app-wizard luci-app-autoreboot \
+	luci-mod-dashboard"
 for a in ${noneed}; do
 	sed -i "/CONFIG_PACKAGE_${a}/d" .config
 	echo "CONFIG_PACKAGE_${a}=n" >> .config

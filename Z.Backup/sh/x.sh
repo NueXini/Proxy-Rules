@@ -12,8 +12,7 @@ cp -f $GITHUB_WORKSPACE/Z.Backup/patches/x.banner package/base-files/files/etc/b
 
 sed -i 's,192\.168\.15,192\.168\.3,g' feeds/x/natflow/files/natflow.config
 
-sed -i 's?fs.access(\"/etc/config/wizard\") and ??g' feeds/luci/modules/luci-base/luasrc/dispatcher.lua
-sed -i 's,admin/initsetup,admin/status/overview,g' feeds/luci/modules/luci-base/luasrc/dispatcher.lua
+sed -i 's/or default_path_info/or "admin/status/overview"/g' feeds/luci/modules/luci-base/luasrc/dispatcher.lua
 
 # sed -i 's/-hidden//g' feeds/luci/applications/luci-app-opkg/root/usr/share/luci/menu.d/luci-app-opkg.json
 # sed -i 's/-hidden//g' feeds/luci/modules/luci-mod-system/root/usr/share/luci/menu.d/luci-mod-system.json
