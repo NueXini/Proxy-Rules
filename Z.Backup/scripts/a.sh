@@ -80,6 +80,7 @@ rm -rf .svn
 svn co https://github.com/linkease/nas-packages-luci/trunk/luci ./
 rm -rf .svn
 svn co https://github.com/linkease/nas-packages/trunk/network/services ./
+rm -rf .svn
 svn co https://github.com/linkease/nas-packages/trunk/multimedia ./
 rm -rf .svn
 ####################################################################################################
