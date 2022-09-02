@@ -91,7 +91,7 @@ jobs:
           grep '^CONFIG_TARGET_SUBTARGET' .config | cut -d '"' -f 2 >NX_TARGET_SUBTARGET
           curl -s "https://downloads.cdn.openwrt.org/snapshots/targets/$(cat NX_TARGET_BOARD)/$(cat NX_TARGET_SUBTARGET)/sha256sums" \
             | sed -n -e 's/.*\(openwrt-toolchain.*\).tar.xz/\1/p' >NX_TOOLCHAIN_FILE
-          cat NX_SDK_FILE
+          cat NX_TOOLCHAIN_FILE
             
       - name: Download toolchain
         run: |
