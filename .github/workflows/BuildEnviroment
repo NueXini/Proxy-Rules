@@ -1,4 +1,4 @@
-ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential
+aria2 ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential
 bzip2 ccache cmake cpio curl device-tree-compiler ecj fakeroot fastjar flex gawk gettext git gperf
 gcc-multilib g++-multilib haveged help2man intltool jq lib32gcc1 libc6-dev-i386 libelf-dev libglib2.0-dev
 libgmp3-dev libltdl-dev libmpc-dev libmpfr-dev libncurses5-dev libncursesw5 libncursesw5-dev libreadline-dev
