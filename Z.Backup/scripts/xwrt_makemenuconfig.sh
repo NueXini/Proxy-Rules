@@ -28,7 +28,7 @@ for a in ${noneed}; do
 	echo "CONFIG_PACKAGE_${a}=n" >> .config
 done
 
-need="luci-app-argon-config luci-app-disableipv6 luci-app-easymesh luci-app-filetransfer \
+need="luci-app-argon-config luci-app-easymesh luci-app-filetransfer \
 	luci-app-openvpn luci-app-ramfree luci-app-socat luci-app-sqm \
 	luci-app-tencentddns luci-app-upnp luci-app-vlmcsd luci-app-zerotier \
 	luci-theme-argon-2102 \
