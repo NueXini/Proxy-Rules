@@ -328,7 +328,6 @@ done
 rm -rf .svn
 
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean ./
-svn co https://github.com/coolsnowwolf/packages/trunk/sound/forked-daapd ./forked-daapd
 svn co https://github.com/coolsnowwolf/packages/trunk/devel/go-rice ./go-rice
 
 cat $GITHUB_WORKSPACE/Z.Backup/list/trash.list | while read trash

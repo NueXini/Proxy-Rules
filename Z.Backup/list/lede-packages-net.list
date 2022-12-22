@@ -1,11 +1,8 @@
 amule
 antileech
 baidupcs-web
-dns2socks
 dnsforwarder
 frp
-ipt2socks
-microsocks
 nps
 pdnsd-alt
 qBittorrent-static
@@ -13,7 +10,6 @@ qBittorrent
 rclone-ng
 rclone-webui-react
 rclone
-redsocks2
 tcpping
 uugamebooster
 verysync
