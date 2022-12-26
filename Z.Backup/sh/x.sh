@@ -17,10 +17,14 @@ sed -i 's/or default_path_info/or "admin/status/overview"/g' feeds/luci/modules/
 # change web luci user to root
 sed -i 's#\"admin\"#\"root\"#g' feeds/luci/modules/luci-base/luasrc/dispatcher.lua
 sed -i 's#\"admin\"#\"root\"#g' feeds/luci/modules/luci-base/root/usr/libexec/rpcd/luci
+sed -i "s#'admin'#'root'#g" feeds/luci/modules/luci-base/root/usr/share/rpcd/ucode/luci
+sed -i "s#'admin'#'root'#g" feeds/luci/modules/luci-base/ucode/dispatcher.uc
 sed -i 's#\"admin\"#\"root\"#g' feeds/luci/modules/luci-mod-admin-mini/luasrc/controller/mini/index.lua
 sed -i 's#\"admin\"#\"root\"#g' feeds/luci/modules/luci-mod-admin-mini/luasrc/model/cbi/mini/passwd.lua
 sed -i 's#\"admin\"#\"root\"#g' feeds/luci/modules/luci-mod-rpc/luasrc/controller/rpc.lua
 sed -i "s#'admin'#'root'#g" feeds/luci/modules/luci-mod-system/htdocs/luci-static/resources/view/system/password.js
+
+sed -i 's/-hidden//g' /usr/share/luci/menu.d/*.json
 
 sed -i '/exit 0/d' feeds/x/base-config-setting/files/uci.defaults
 cat $GITHUB_WORKSPACE/Z.Backup/sh/x.defaults.sh | while read line
