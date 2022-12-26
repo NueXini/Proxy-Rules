@@ -37,7 +37,7 @@ jobs:
           NUEXINI="$NUEXINI"']'
           
           echo $NUEXINI
-          echo "CFG_CONFIG::$NUEXINI" >> $GITHUB_OUTPUT
+          echo "CFG_CONFIG=$NUEXINI" >> $GITHUB_OUTPUT
   
   build:
     name: ${{ matrix.config }}
