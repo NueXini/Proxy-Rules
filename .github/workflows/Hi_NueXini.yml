@@ -45,7 +45,7 @@ jobs:
         ln -sf $GITHUB_WORKSPACE/Z.Backup/scripts/dd.sh ./dd.sh
         
     - name: Hi NueXini
-      uses: klever1988/ssh2actions@main
+      uses: mxschmitt/action-tmate@master
       
     - name: Preparation
       run: |
