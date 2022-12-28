@@ -24,8 +24,8 @@ sed -i 's/+luci-theme-bootstrap //g' feeds/luci/collections/luci-nginx/Makefile
 sed -i 's/+luci-theme-bootstrap //g' feeds/luci/collections/luci-ssl-nginx/Makefile
 
 # /usr/lib/lua/luci/version.lua
-sed -i 's/${3:-LuCI}/NueXini/g' feeds/luci/modules/luci-base/src/mkversion.sh
-sed -i 's/${2:-Git}/$(TZ=UTC-18 date "+%Y-%m-%d")/g' feeds/luci/modules/luci-base/src/mkversion.sh
+sed -i 's/${3:-LuCI}/NueXini/g' feeds/luci/modules/luci-lua-runtime/src/mkversion.sh
+sed -i 's/${2:-Git}/$(TZ=UTC-18 date "+%Y-%m-%d")/g' feeds/luci/modules/luci-lua-runtime/src/mkversion.sh
 
 ln -sf /usr/bin/upx ./staging_dir/host/bin/upx
 ln -sf /usr/bin/upx-ucl ./staging_dir/host/bin/upx-ucl
