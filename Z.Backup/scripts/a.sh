@@ -60,7 +60,6 @@ svn co https://github.com/QiuSimons/openwrt-mos/trunk/luci-app-mosdns ./luci-app
 svn co https://github.com/QiuSimons/openwrt-mos/trunk/mosdns ./mosdns
 svn co https://github.com/sbwml/luci-app-mosdns/trunk/luci-app-mosdns ./luci-app-mosdns2
 sed -i 's/luci-app-mosdns/&2/g' ./luci-app-mosdns2/Makefile
-sed -i 's/mosdns +/mosdns-neo +/g' ./luci-app-mosdns2/Makefile
 rm -rf .svn
 ####################################################################################################
 
@@ -223,7 +222,7 @@ rm -rf .svn
 
 # Speedtest
 svn co https://github.com/sirpdboy/netspeedtest/trunk/luci-app-netspeedtest ./luci-app-netspeedtest
-svn co https://github.com/sirpdboy/netspeedtest/trunk/speedtest-web ./speedtest-web
+svn co https://github.com/sirpdboy/netspeedtest/trunk/homebox ./homebox
 rm -rf ./luci-app-netspeedtest/po/zh_Hans
 ln -s zh-cn ./luci-app-netspeedtest/po/zh_Hans
 rm -rf .svn
