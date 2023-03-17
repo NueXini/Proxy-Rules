@@ -4,6 +4,11 @@
 
 ####################################################################################################
 
+# luci-app-partexp
+svn co https://github.com/sirpdboy/luci-app-partexp/trunk/ ./luci-app-partexp
+rm -rf .svn
+####################################################################################################
+
 # luci-app-unblockneteasemusic-2102
 svn co https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic/trunk/ ./luci-app-unblockneteasemusic-2102
 sed -i 's/luci-app-unblockneteasemusic/&-2102/g' ./luci-app-unblockneteasemusic-2102/Makefile
