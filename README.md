@@ -3,6 +3,10 @@
 - [Clash](https://github.com/Dreamacro/clash) 
   - 推荐的配置文件为[NueXini_basic.ini](https://raw.githubusercontent.com/NueXini/Proxy-Rules/master/Clash/config/NueXini_basic.ini)
   - 负载均衡配置文件为[basic_load-balance.ini](https://raw.githubusercontent.com/NueXini/Proxy-Rules/master/Clash/basic_load-balance.ini)
+  - 订阅转换
+  
+  1. [https://id9.cc/](https://id9.cc/)
+  2. [https://bianyuan.xyz/](https://bianyuan.xyz/)
 
 ------
 
