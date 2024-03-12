@@ -260,13 +260,16 @@ mv ../immortalwrt-1806-packages/net/gost ./
 mv ../immortalwrt-1806-packages/net/gowebdav ./
 mv ../immortalwrt-1806-packages/utils/cpulimit ./
 mv ../immortalwrt-1806-packages/utils/cpulimit-ng ./
-mv ../immortalwrt-1806-packages/applications/luci-app-udp2raw ./
-mv ../immortalwrt-1806-packages/applications/luci-app-xunlei ./
-mv ../immortalwrt-1806-packages/applications/luci-app-gost ./
-mv ../immortalwrt-1806-packages/applications/luci-app-gowebdav ./
-mv ../immortalwrt-1806-packages/applications/luci-app-cpulimit ./
-mv ../immortalwrt-1806-packages/applications/luci-app-unblockneteasemusic-go ./
-mv ../immortalwrt-1806-packages/applications/luci-app-unblockneteasemusic ./
+
+git clone --depth=1 -b openwrt-18.06 https://github.com/immortalwrt/luci ../immortalwrt-1806-luci
+
+mv ../immortalwrt-1806-luci/applications/luci-app-udp2raw ./
+mv ../immortalwrt-1806-luci/applications/luci-app-xunlei ./
+mv ../immortalwrt-1806-luci/applications/luci-app-gost ./
+mv ../immortalwrt-1806-luci/applications/luci-app-gowebdav ./
+mv ../immortalwrt-1806-luci/applications/luci-app-cpulimit ./
+mv ../immortalwrt-1806-luci/applications/luci-app-unblockneteasemusic-go ./
+mv ../immortalwrt-1806-luci/applications/luci-app-unblockneteasemusic ./
 
 ####################################################################################################
 
@@ -279,29 +282,31 @@ mv -n ../lede-luci/applications/* ./
 mv -n ../lede-luci/collections/luci-lib-docker ./
 mv -n ../lede-luci/libs/luci-lib-fs ./
 
+git clone --depth=1 -b master https://github.com/coolsnowwolf/packages ../lede-packages
+
 cat $GITHUB_WORKSPACE/Z.Backup/list/lede-packages-net.list | while read name; do
     if [ nx"$name" != nx ]; then
         echo 'NueXini-APP-'$name
-        mv -n ../lede-luci/net/$name ./
+        mv -n ../lede-packages/net/$name ./
     fi
 done
 
 cat $GITHUB_WORKSPACE/Z.Backup/list/lede-packages-libs.list | while read name; do
     if [ nx"$name" != nx ]; then
         echo 'NueXini-APP-'$name
-        mv -n ../lede-luci/libs/$name ./
+        mv -n ../lede-packages/libs/$name ./
     fi
 done
 
 cat $GITHUB_WORKSPACE/Z.Backup/list/lede-packages-multimedia.list | while read name; do
     if [ nx"$name" != nx ]; then
         echo 'NueXini-APP-'$name
-        mv -n ../lede-luci/multimedia/$name ./
+        mv -n ../lede-packages/multimedia/$name ./
     fi
 done
 
-mv -n ../lede-luci/package/lean ./
-mv -n ../lede-luci/devel/go-rice ./
+mv -n ../lede-packages/package/lean ./
+mv -n ../lede-packages/devel/go-rice ./
 
 cat $GITHUB_WORKSPACE/Z.Backup/list/trash.list | while read trash; do
     if [ nx"$trash" != nx ]; then
