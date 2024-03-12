@@ -25,7 +25,7 @@ git clone https://github.com/tindy2013/openwrt-subconverter --depth=1 ./openwrt-
 
 # luci-app-cloudflarespeedtest
 git clone --depth=1 -b main https://github.com/mingxiaoyu/luci-app-cloudflarespeedtest ../luci-app-cloudflarespeedtest
-mv ../applications/luci-app-cloudflarespeedtest ./
+mv ../luci-app-cloudflarespeedtest/applications/luci-app-cloudflarespeedtest ./
 ####################################################################################################
 
 # luci-app-amlogic
@@ -67,16 +67,16 @@ mv ../openwrt_nezha/openwrt-nezha ./
 ####################################################################################################
 
 # mosdns
-git clone --depth=1 -b master https://github.com/sbwml/luci-app-mosdns ../luci-app-mosdns
+git clone --depth=1 -b master https://github.com/QiuSimons/openwrt-mos ../luci-app-mosdns
 mv ../luci-app-mosdns/luci-app-mosdns ./
 mv ../luci-app-mosdns/mosdns ./
 mv ../luci-app-mosdns/v2ray-geodata ./
 mv ../luci-app-mosdns/dat ./
 
 git clone --depth=1 -b v5 https://github.com/sbwml/luci-app-mosdns ../luci-app-mosdns2
-sed -i 's/luci-app-mosdns/&2/g' ../luci-app-mosdns2/Makefile
 mv ../luci-app-mosdns2/luci-app-mosdns ./luci-app-mosdns2
 mv ../luci-app-mosdns2/v2dat ./
+sed -i 's/luci-app-mosdns/&2/g' ./luci-app-mosdns2/Makefile
 ####################################################################################################
 
 # luci-app-wrtbwmon
@@ -253,6 +253,8 @@ git clone --depth=1 -b master https://github.com/msylgj/luci-app-tencentddns
 
 git clone --depth=1 -b openwrt-18.06 https://github.com/immortalwrt/packages ../immortalwrt-1806-packages
 
+ls ../immortalwrt-1806-packages
+
 mv ../immortalwrt-1806-packages/net/udp2raw ./
 mv ../immortalwrt-1806-packages/net/gost ./
 mv ../immortalwrt-1806-packages/net/gowebdav ./
@@ -270,6 +272,8 @@ mv ../immortalwrt-1806-packages/applications/luci-app-unblockneteasemusic ./
 
 # Lede/Lean
 git clone --depth=1 -b master https://github.com/coolsnowwolf/luci ../lede-luci
+
+ls ../lede-luci
 
 mv -n ../lede-luci/applications/* ./
 mv -n ../lede-luci/collections/luci-lib-docker ./
@@ -315,6 +319,8 @@ sed -i 's#+strongswan #&+strongswan-mod-openssl #g' ./luci-app-ipsec-vpnd/Makefi
 
 # Lienol
 git clone --depth=1 -b main https://github.com/Lienol/openwrt-package ../Lienol-openwrt-package
+
+ls ../Lienol-openwrt-package
 
 mv -n ../Lienol-openwrt-package/luci-app-fileassistant ./
 mv -n ../Lienol-openwrt-package/luci-app-filebrowser ./
