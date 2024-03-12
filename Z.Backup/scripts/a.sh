@@ -248,12 +248,10 @@ git clone --depth=1 -b master https://github.com/sirpdboy/luci-app-autotimeset
 ####################################################################################################
 
 # Tencentddns
-git clone --depth=1 -b master https://github.com/msylgj/luci-app-tencentddns
+git clone --depth=1 -b main https://github.com/msylgj/luci-app-tencentddns
 ####################################################################################################
 
 git clone --depth=1 -b openwrt-18.06 https://github.com/immortalwrt/packages ../immortalwrt-1806-packages
-
-ls ../immortalwrt-1806-packages
 
 mv ../immortalwrt-1806-packages/net/udp2raw ./
 mv ../immortalwrt-1806-packages/net/gost ./
@@ -275,8 +273,6 @@ mv ../immortalwrt-1806-luci/applications/luci-app-unblockneteasemusic ./
 
 # Lede/Lean
 git clone --depth=1 -b master https://github.com/coolsnowwolf/luci ../lede-luci
-
-ls ../lede-luci
 
 mv -n ../lede-luci/applications/* ./
 mv -n ../lede-luci/collections/luci-lib-docker ./
@@ -324,8 +320,6 @@ sed -i 's#+strongswan #&+strongswan-mod-openssl #g' ./luci-app-ipsec-vpnd/Makefi
 
 # Lienol
 git clone --depth=1 -b main https://github.com/Lienol/openwrt-package ../Lienol-openwrt-package
-
-ls ../Lienol-openwrt-package
 
 mv -n ../Lienol-openwrt-package/luci-app-fileassistant ./
 mv -n ../Lienol-openwrt-package/luci-app-filebrowser ./
