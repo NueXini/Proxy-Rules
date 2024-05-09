@@ -120,6 +120,7 @@ mv ../aliyundrive-webdav/openwrt/* ./
 
 # BanAD
 git clone --depth=1 -b master https://github.com/rufengsuixing/luci-app-adguardhome
+sed -i 's/\/usr\/bin\/AdGuardHome\/AdGuardHome/\/usr\/bin\/AdGuardHome/g' ./luci-app-adguardhome/root/etc/config/AdGuardHome
 git clone --depth=1 -b main https://github.com/ilxp/luci-app-ikoolproxy
 ####################################################################################################
 
